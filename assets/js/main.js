@@ -265,3 +265,20 @@ function searchFunction() {
   }
 }
 
+/*Function to update meta viewport when Iphone is Tilted*/
+
+function updateViewportMeta() {
+  var metaViewport = document.getElementById('dynamic-viewport');
+  if (window.matchMedia("(orientation: landscape)").matches) {
+    metaViewport.setAttribute("content", "viewport-fit=cover");
+  } else {
+    metaViewport.setAttribute("content", "");
+  }
+}
+
+// Aggiorna il meta tag all'avvio
+updateViewportMeta();
+
+// Aggiorna il meta tag quando cambia l'orientamento
+window.addEventListener("orientationchange", updateViewportMeta);
+window.addEventListener("resize", updateViewportMeta);

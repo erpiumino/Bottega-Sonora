@@ -51,23 +51,35 @@
 /*--------------------------------------------------------------
 # General
 --------------------------------------------------------------*/
+/* Azzera i margini e il padding del body */
 body {
+  margin: 0;
+  padding: 0;
   color: var(--default-color);
   font-family: var(--default-font);
   font-weight: 200;
   position: relative;
+  background-color: var(--heading-color);
 }
 
+/* Aggiusta lo styling per il body::before */
 body::before {
   content: "";
   position: fixed;
-  background: #040404 url("../img/LucaSfondo.png") center no-repeat;
-  background-size: cover;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  height: 100vh;
+  background: #040404 url("../img/LucaSfondo.png") center no-repeat;
+  background-size: cover;
   z-index: -1;
+}
+
+
+@media only screen and (orientation: landscape) {
+  body::before{
+    background: none;
+  }
 }
 
 a {
@@ -1279,7 +1291,7 @@ section,
   top: -8px;
   height: 100%;
   width: 100%;
-  background: color-mix(in srgb, var(--accent-color), transparent 80%);
+  background: color-mix(in srgb, var(--accent-color),  80%);
   transition: all 0.3s ease-out 0s;
   transform: translateZ(-1px);
 }
@@ -1896,7 +1908,7 @@ section,
   }
   .container p{
     margin-right: 30px;
-    margin-left: 30px;
+    margin-left: 5px;
   }
 }
 
@@ -2027,6 +2039,19 @@ section,
   margin-top: 350px;
 }
 
+@media(max-width:500px){
+  #speakers{
+    margin-top: 200px;
+  }
+}
+
+/* Media query for landscape orientation */
+@media only screen and (orientation: landscape) {
+  #speakers{
+    margin-top: 0px;
+  }
+}
+
 .container h2, .container p{
   color: var(--background-color);
   font-family: var(--default-font);
@@ -2041,10 +2066,11 @@ section,
   position: relative;
   overflow: hidden;
   margin-bottom: 30px;
+  cursor: pointer;
 }
 
 #speakers .speaker .details {
-  background: linear-gradient(to bottom, transparent 20%, black 90%);
+  background: linear-gradient(to bottom, transparent 40%, black 90%);
   position: absolute;
   left: 0;
   bottom: -40px;
@@ -2068,6 +2094,10 @@ section,
   font-style: italic;
 }
 
+#speakers .speaker .details .social a:hover{
+  color: var(--accent-color);
+}
+
 #speakers .speaker .details .social {
   height: 40px;
 }
@@ -2079,10 +2109,6 @@ section,
 
 #speakers .speaker .details a {
   color: #fff;
-}
-
-#speakers .speaker .details a:hover {
-  color: var(--accent-color);
 }
 
 #speakers .speaker .details h3{
@@ -2137,6 +2163,7 @@ section,
   font-size: 15px;
   margin-bottom: 10px;
 }
+
 
 .speaker-info{
   color: var(--accent-color);
@@ -2518,6 +2545,13 @@ body.scrolled .header{
   cursor: pointer;
 }
 
+/* Media query per orientamento landscape */
+@media only screen and (orientation: landscape) {
+  .sidebar{
+    width: 350px;
+    overflow-y: auto; /* Enable vertical scrolling */
+  }
+}
 
 /*=========================Repertoire=========================*/
 
