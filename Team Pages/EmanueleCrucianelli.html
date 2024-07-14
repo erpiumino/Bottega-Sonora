@@ -7,6 +7,8 @@
   <title>Bottega Sonora</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta id="dynamic-viewport">
 
   <!-- Favicons -->
   <link href="../assets/img/favicon.png" rel="icon">
@@ -74,6 +76,7 @@
 
 
     <!--============================SideBar============================-->
+    <div id="overlay" class="overlay"></div>
     <div id="sidebar" class="sidebar" data-aos="fade-up">
 
       <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
@@ -111,14 +114,14 @@
           </li>
         </ul>
 
-        <ul class="nav nav-pills flex-column " style="margin-bottom: 50px;">
+        <ul class="nav nav-pills flex-column leng-side" style="margin-bottom: 50px;">
           <li class="nav-item">
             <a id="en-btn-sidebar" onmousedown="setLanguage('en'); return false;console.log('Hello, world');"
-              class="language-btn bi bi-translate">&nbsp EN</a>
+              class="language-btn bi bi-translate nav-link">&nbsp EN</a>
           </li>
           <li class="nav-item">
             <a id="it-btn-sidebar" onmousedown="setLanguage('it'); return false;"
-              class="language-btn bi bi-translate">&nbsp IT</a>
+              class="language-btn bi bi-translate nav-link">&nbsp IT</a>
           </li>
           <li class="nav-item">
         </ul>
@@ -217,22 +220,21 @@
         <div class="col-lg-3 col-md-3 footer-links">
           <h4 id="footer-col-name-2">Rapid Contacts</h4>
           <ul>
-            <li><a id="footer-mail-1" href="mailto:info@bottegasonora.com">Our Company Email</a></li>
-            <li><a id="footer-mail-2" href="mailto:management@bottegasonora.com">General Manager</a></li>
-            <li><a id="footer-mail-3" href="mailto:events@bottegasonora.com">Event Manager</a></li>
-            <li><a id="footer-mail-4" href="mailto:graphic@bottegasonora.com">Graphic Designer</a></li>
+            <li><a id="footer-mail-1" href="mailto:info@bsensemble.com">Our Company Email</a></li>
+            <li><a id="footer-mail-2" href="mailto:manager@bsensemble.com">General Manager</a></li>
+            <li><a id="footer-mail-3" href="mailto:events@bsensemble.com">Event Manager</a></li>
+            <li><a id="footer-mail-4" href="mailto:graphic@bsensemble.com">Graphic Designer</a></li>
           </ul>
         </div>
 
         <div class="col-lg-2 col-md-3 footer-links">
           <h4 id="footer-col-name-2">Legal</h4>
           <ul>
-            <li><a id="footer-legal-1" href="#">Privacy</a></li>
-            <li><a id="footer-legal-2" href="#">Copyright</a></li>
-            <li><a id="footer-legal-3" href="#">Credits</a></li>
+            <li><a id="footer-legal-1" href="../Legal/Privacy.html">Privacy</a></li>
+            <li><a id="footer-legal-2" href="../Legal/Copyright.html">Copyright</a></li>
+            <li><a id="footer-legal-3" href="../Legal/Credits.html">Credits</a></li>
           </ul>
         </div>
-
       </div>
     </div>
 

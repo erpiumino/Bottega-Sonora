@@ -31,21 +31,45 @@ console.log('Before everything');
  */
 const mobileNavToggleBtn = document.querySelector('.mobile-nav-toggle');
 const sidebar = document.querySelector('#sidebar');
+const overlay = document.querySelector('#overlay');
+const en_btn = document.querySelector("#en-btn-sidebar");
+const it_btn = document.querySelector("#it-btn-sidebar");
 
 function mobileNavToggle() {
   document.body.classList.toggle('mobile-nav-active');
   sidebar.classList.toggle('sidebar-active');
+  overlay.classList.toggle('overlay-active');
   mobileNavToggleBtn.classList.toggle('bi-list');
   mobileNavToggleBtn.classList.toggle('bi-x');
 }
+// Event listener for the mobile nav toggle button
 mobileNavToggleBtn.addEventListener('click', mobileNavToggle);
+
+// Event listener for the overlay and language buttons to close the sidebar when clicked
+overlay.addEventListener('click', () => {
+  if (document.body.classList.contains('mobile-nav-active')) {
+    mobileNavToggle();
+  }
+});
+
+en_btn.addEventListener('click', () => {
+  if (document.body.classList.contains('mobile-nav-active')) {
+    mobileNavToggle();
+  }
+});
+
+it_btn.addEventListener('click', () => {
+  if (document.body.classList.contains('mobile-nav-active')) {
+    mobileNavToggle();
+  }
+});
 
 /**
  * Hide mobile nav on same-page/hash links
  */
 document.querySelectorAll('#navmenu a').forEach(navmenu => {
   navmenu.addEventListener('click', () => {
-    if (document.body.classList.contains('mobile-nav-active')) {
+    if (document.body.classList.contains('mobile-nav-active')){
       mobileNavToggle();
     }
   });

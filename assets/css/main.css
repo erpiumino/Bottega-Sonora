@@ -62,6 +62,12 @@ body {
   background-color: var(--heading-color);
 }
 
+@media(orientation: portrait){
+  body{
+    background-color: rgba(63, 63, 63, 1);
+  }
+}
+
 /* Aggiusta lo styling per il body::before */
 body::before {
   content: "";
@@ -73,13 +79,6 @@ body::before {
   background: #040404 url("../img/LucaSfondo.png") center no-repeat;
   background-size: cover;
   z-index: -1;
-}
-
-
-@media only screen and (orientation: landscape) {
-  body::before{
-    background: none;
-  }
 }
 
 a {
@@ -185,6 +184,139 @@ h6 {
 }
 
 .header .logo h1 {
+  font-size: 30px;
+  margin: 0;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--heading-color);
+}
+
+body.scrolled .header{
+  background-color: rgba(76, 76, 76, 0.75);
+  transition: background 0.6s ease;
+}
+
+body.scrolled .header .navmenu ul li a{
+  font-size: 12px;
+  transition: all 0.5s ease;
+  transition: font-size 0.6s;
+}
+
+body.scrolled .header img{
+  max-height: 35px;
+  margin-right: 8px;
+  margin-top: 20px;
+  transition: 0.6s;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+body.scrolled .header{
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+@media(max-width:900px) and (orientation: portrait){
+  body.scrolled .header .navmenu  a{
+    font-size: 8px;
+    transition: all 0.5s ease;
+    transition: font-size 0.6s;
+  }
+  body.scrolled .header{
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  body.scrolled .header img{
+    align-self: center;
+    max-height: 35px;
+    margin-right: 8px;
+    transition: 0.6s;
+    margin-top: auto;
+    margin-bottom: auto;
+  }
+}
+
+/*Stile per header solo nella pagina principale*/
+
+.header-index {
+  --background-color: #242424;
+  --default-color: #ffffff;
+  --heading-color: #ffffff;
+  --contrast-color: #ffffff;
+  color: var(--default-color);
+  transition: all 0.5s;
+  z-index: 997;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header-index .topbar {
+  height: 40px;
+  padding: 0;
+  font-size: 14px;
+  transition: all 0.5s;
+}
+
+.header-index .topbar .contact-info i {
+  font-style: normal;
+  color: var(--accent-color);
+}
+
+.header-index .topbar .contact-info i a,
+.header-index .topbar .contact-info i span {
+  padding-left: 5px;
+  color: var(--default-color);
+}
+
+@media (max-width: 575px) {
+
+  .header-index .topbar .contact-info i a,
+  .header-index .topbar .contact-info i span {
+    font-size: 13px;
+  }
+}
+
+.header-index .topbar .contact-info i a {
+  line-height: 0;
+  transition: 0.3s;
+}
+
+.header-index .topbar .contact-info i a:hover {
+  color: var(--contrast-color);
+  text-decoration: underline;
+}
+
+.header-index .topbar .social-links a {
+  color: color-mix(in srgb, var(--default-color), transparent 40%);
+  line-height: 0;
+  transition: 0.3s;
+  margin-left: 20px;
+}
+
+.header-index .topbar .social-links a:hover {
+  color: var(--accent-color);
+}
+
+.header-index .branding {
+  min-height: 50px;
+}
+
+.header-index .logo {
+  line-height: 1;
+}
+
+.header-index .logo img {
+  max-height: 50px;
+  margin-right: 8px;
+  margin-top: 20px;
+}
+.footer .logo img {
+  max-height: 50px;
+  margin-right: 8px;
+  margin-top: 20px;
+}
+
+.header-index .logo h1 {
   font-size: 30px;
   margin: 0;
   font-weight: 700;
@@ -1053,6 +1185,29 @@ section,
   z-index: 200;
   animation: none;
   border-radius: 0;
+}
+
+@media(max-width:1000px) and (orientation: landscape) {
+  #hero p{
+    font-size: 15px;
+    margin: 0!important;
+  }
+  #hero h2{
+    font-size: 50px!important;
+  }
+  #hero .play-btn{
+    margin-top: 40px!important;
+  }
+  #hero .container{
+    margin-top: -50px!important;
+    padding: 0;
+  }
+}
+
+@media(max-width:1200px){
+  #hero h2{
+    font-size: 50px!important;
+  }
 }
 
 /*--------------------------------------------------------------
@@ -1925,10 +2080,10 @@ section,
 }
 
 
-@media (max-width: 992px){
+@media (max-width: 1100px){
     
   .hero{
-    text-align: center;
+    text-align: center!important;
   }
   .container h6{
     margin: 20px;
@@ -1942,6 +2097,9 @@ section,
   }
   .head-social{
     display: none;
+  }
+  .col-lg-7{
+    width: 100%;
   }
 }
 
@@ -2039,16 +2197,26 @@ section,
   margin-top: 350px;
 }
 
-@media(max-width:500px){
+@media(max-width:1200px){
   #speakers{
     margin-top: 200px;
   }
 }
 
 /* Media query for landscape orientation */
-@media only screen and (orientation: landscape) {
+@media(max-width:1000px) and (orientation: landscape) {
+  body::before{
+  }
+  
   #speakers{
-    margin-top: 0px;
+    margin-top: 150px;
+  }
+  .page-title{
+    margin-top: 0px!important;
+    height: 200px;
+  }
+  .breadcrumbs{
+    margin-top: 100px;
   }
 }
 
@@ -2228,29 +2396,6 @@ section,
 
 .no-home{
   background: linear-gradient(to top, transparent 0%, black 100%);
-}
-
-body.scrolled .header{
-  background-color: rgba(76, 76, 76, 0.75);
-  transition: background 0.6s ease;
-}
-
-body.scrolled .header .navmenu ul li a{
-  font-size: 12px;
-  transition: all 0.5s ease;
-  transition: font-size 0.6s;
-}
-
-body.scrolled .header img{
-  max-height: 35px;
-  margin-right: 8px;
-  margin-top: 20px;
-  transition: 0.6s;
-}
-
-body.scrolled .header{
-  padding-top: 10px;
-  padding-bottom: 10px;
 }
 
 .details .socials a {
@@ -2467,28 +2612,44 @@ body.scrolled .header{
 
 /*============================Side bar============================*/
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  z-index: 999; /* Ensure overlay is below the sidebar */
+}
+
+.overlay-active {
+  opacity: 1;
+  visibility: visible;
+}
+
 .sidebar {
   display: none;
-  float: right;
   padding-top: 50px;
   position: fixed;
   top: 0;
-  float: right;
-  right: -250px; /* Initially hide sidebar off the screen */
-  width: 250px;
+  right: 0;
+  width: 360px;
+  max-width: 70%!important;
   height: 100%;
   background-color: #21252A;
   color: white;
-  transition: right 0.3s ease; /* Smooth transition for right property */
+  transform: translateX(100%); /* Start with sidebar off the screen to the right */
+  transition: transform 1.3s ease; /* Smooth transition for transform property */
+  z-index: 1000; /* Ensure overlay is below the sidebar */
 }
 
 .sidebar-active {
   display: flex;
-  float: right;
-  top: 0;
-  right: 0; /* Show sidebar by moving it to the left */
   padding-top: 50px;
-  transition: left 0.3s ease; /* Smooth transition for right property */
+  transform: translateX(0); /* Slide the sidebar in */
 }
 
 
@@ -2526,10 +2687,14 @@ body.scrolled .header{
   .sidebar-active{
     display: none;
   }
+  .overlay-active{
+    display: none;
+  }
 }
 
 .sidebar ul .btn-active, .sidebar .language-btn:hover{
   font-weight: 600;
+  color: inherit;
 }
 
 .sidebar .active{
@@ -2545,13 +2710,28 @@ body.scrolled .header{
   cursor: pointer;
 }
 
+.language-btn{
+  padding-top: 0;
+}
+
 /* Media query per orientamento landscape */
-@media only screen and (orientation: landscape) {
+@media(max-width:1000px) and (orientation: landscape) {
   .sidebar{
-    width: 350px;
+    width: 370px;
     overflow-y: auto; /* Enable vertical scrolling */
   }
+  .leng-side{
+    margin-top: 40px;
+  }
+  .mobile-nav-toggle{
+    margin-right: 60px!important;
+  }
 }
+
+.container{
+  overflow-x: auto; /* Enable vertical scrolling */
+}
+
 
 /*=========================Repertoire=========================*/
 
@@ -2560,9 +2740,6 @@ body.scrolled .header{
   td, th{
     padding: 2px;
     font-size: 14px;
-  }
-  td:nth-child(5){
-    display:none;
   }
 }
 

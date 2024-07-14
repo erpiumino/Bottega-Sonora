@@ -50,7 +50,7 @@
 </head>
 
 <body class="index-page">
-  <header id="header" class="header fixed-top">
+  <header id="header" class="fixed-top header-index">
 
     <div class="branding d-flex align-items-center">
 
@@ -83,6 +83,7 @@
 
 
     <!--============================SideBar============================-->
+    <div id="overlay" class="overlay"></div>
     <div id="sidebar" class="sidebar" data-aos="fade-up">
 
       <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
@@ -120,14 +121,14 @@
           </li>
         </ul>
 
-        <ul class="nav nav-pills flex-column " style="margin-bottom: 50px;">
+        <ul class="nav nav-pills flex-column leng-side" style="margin-bottom: 50px;">
           <li class="nav-item">
             <a id="en-btn-sidebar" onmousedown="setLanguage('en'); return false;console.log('Hello, world');"
-              class="language-btn bi bi-translate">&nbsp EN</a>
+              class="language-btn bi bi-translate nav-link">&nbsp EN</a>
           </li>
           <li class="nav-item">
             <a id="it-btn-sidebar" onmousedown="setLanguage('it'); return false;"
-              class="language-btn bi bi-translate">&nbsp IT</a>
+              class="language-btn bi bi-translate nav-link">&nbsp IT</a>
           </li>
           <li class="nav-item">
         </ul>
@@ -145,7 +146,6 @@
     <section id="hero" class="hero section" style="background: none;">
 
       <!-- <img src="assets/img/portfolio/app-1.jpg" alt="" data-aos="fade-in"> -->
-
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row justify-content-start">
