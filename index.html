@@ -3,12 +3,12 @@
 
 <head>
   <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
   <title>Bottega Sonora</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta id="dynamic-viewport">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
   <!-- Favicons -->
   <link href="assets/img/favicon.png" rel="icon">
@@ -31,6 +31,12 @@
   <link rel="stylesheet" href="https://use.typekit.net/lrr7bct.css">
   <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/sidebars/">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/modals/">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+  <link href="dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Custom styles for modals -->
+  <link href="assets/css/modals.css" rel="stylesheet">
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -49,7 +55,8 @@
         ======================================================== -->
 </head>
 
-<body class="index-page">
+<body class="index-page" style="overflow: hidden;">
+  
   <header id="header" class="fixed-top header-index">
 
     <div class="branding d-flex align-items-center">
@@ -87,9 +94,11 @@
     <div id="sidebar" class="sidebar" data-aos="fade-up">
 
       <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
-        <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+        <a href="index.html" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" style="text-align:center">
           <span class="fs-4 BS" style="margin-left: 20px;">BOTTEGA <span
-              style="font-weight: 600; color: var(--accent-color);">SONORA</span></span>
+              style="font-weight: 600; color: var(--accent-color);">SONORA</span>
+            ENSEMBLE
+            </span>
         </a>
         <hr>
         <ul class="nav nav-pills flex-column mb-auto" id="sidebar-menu">
@@ -137,28 +146,60 @@
       <div class="b-example-divider b-example-vr"></div>
     </div>
     <!--============================SideBar============================-->
-
-
   </header>
 
   <main class="main">
     <!-- Hero Section -->
     <section id="hero" class="hero section" style="background: none;">
 
+      <div class="modal modal-sheet  d-block p-4 py-md-5" tabindex="-1" role="dialog" id="modalTour">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content rounded-4 shadow">
+            <div class="modal-body p-5">
+              <h2 class="BS" style="font-size: 30px!important; font-weight: 200;">Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E</h2>
+              <p style="margin-top: 20px;">This website is still under development, so you might experience some issues. Here's what you can do to help us:</p>
+
+        <ul class="d-grid gap-4 my-5 list-unstyled small">
+          <li class="d-flex gap-4">
+            <a class="bi bi-bug-fill big-icon"><use xlink:href="#grid-fill"/></a>
+            <div>
+              <h5 class="BS fw-bold">Check for bugs</h5>
+              Tilt your phone, do strange things, you know...
+            </div>
+          </li>
+          <li class="d-flex gap-4">
+            <a class="bi bi-translate big-icon"><use xlink:href="#grid-fill"/></a>
+            <div>
+              <h5 class="BS fw-bold">Bad translations</h5>
+              Our developer is not payed to translate, he might have slipped on some of them
+            </div>
+          </li>
+          <li class="d-flex gap-4">
+            <a class="bi bi-envelope-fill big-icon"><use xlink:href="#grid-fill"/></a>
+            <div>
+              <h5 class="BS fw-bold">Email Us</h5>
+              If you have complaints, suggestions, or if you want to vent
+            </div>
+          </li>
+        </ul>
+              <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal" onclick="document.getElementById('modalTour').classList.remove('visible')">Great, thanks!</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- <img src="assets/img/portfolio/app-1.jpg" alt="" data-aos="fade-in"> -->
 
       <div class="container" data-aos="fade-up" data-aos-delay="100">
         <div class="row justify-content-start">
-          <div class="col-lg-7">
+          <div class="col-lg-6" style=" margin-left: auto; margin-right: auto;">
             <p id="upper_text" class="" style="margin-bottom: 20px;">We are</p>
-            <h2 class="BS" style="font-weight: 200; font-size: 70px; font-family: var(--head-font); color: white;">
-              BOTTEGA <span style="font-weight: 600; color: var(--accent-color);">SONORA</span></h2>
-            <p id="lower_text">A contemporary music Ensemble. Musicians and Composers, together</p>
-            <div class="play"><a href="https://www.youtube.com/watch?v=QRe_-5xe2OE" target="_blank"
-                class="glightbox play-btn mb-4" style="margin-top: 50px;"></a></div>
+            <h2 class="BS" style="font-weight: 200; font-size: 75px; font-family: var(--head-font); color: white;">
+              BOTTEGA <span style="font-weight: 600; color: var(--accent-color);">SONORA</span> ENSEMBLE</h2>
+            <p id="lower_text">A contemporary music union. Musicians and Composers, together</p>
           </div>
 
-          <div class="col-lg-5 head-social" style="margin-top: -20px;">
+          <div class="col-lg-6 head-social" >
             <p><a class="bi bi-instagram" href="https://instagram.com/bsensemble" target="_blank"></a></p>
             <p><a class="bi bi-tiktok" href="https://tiktok.com/@bottegasonora" target="_blank"></a></p>
             <p id="follow">FOLLOW US</p>
@@ -167,6 +208,8 @@
             <p><a class="bi bi-youtube" href="https://www.youtube.com/@BottegaSonoraEnsemble" target="_blank"></a></p>
           </div>
         </div>
+      <div class="play"><a href="https://www.youtube.com/watch?v=QRe_-5xe2OE" target="_blank"
+        class="glightbox play-btn mb-4" style="margin-top: 50px;"></a></div>
       </div>
 
       <div class="slider">
@@ -203,6 +246,5 @@
 <!-- Main JS File -->
 <script src="assets/js/main.js" defer></script>
 <script src="assets/js/content.js" defer></script>
-</body>
 
 </html>

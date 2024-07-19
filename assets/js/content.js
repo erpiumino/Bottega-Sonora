@@ -31,12 +31,13 @@ function setLanguage(language) {
 
     // Set active button based on language
     document.getElementById(`${language}-btn-top`).classList.add('btn-active');
+    document.getElementById(`${language}-btn-modal`).classList.add('btn-active');
     document.getElementById(`${language}-btn-sidebar`).classList.add('btn-active');
 
     const texts = {
         'en': {
             'upper_text': 'We are',
-            'lower_text': 'A contemporary music Ensemble. Musicians and Composers, together',
+            'lower_text': 'A contemporary music union. Musicians and Composers, together',
             'about2': 'about',
             'team': 'team',
             'events': 'events',
@@ -163,6 +164,7 @@ function setLanguage(language) {
             'repertoire-organic' : "Organic",
             'repertoire-year' : "Year",
             'repertoire-notes' : "Notes",
+            'repertoire-rotate' : '<a class="bi bi-phone-landscape-fill"></a>  Rotate your phone for a better view',
             'two-flutes' : "Two Flutes",
             'flute' : "Flute",
             'clarinet' : "Clarinet",
@@ -221,6 +223,12 @@ function setLanguage(language) {
             //============================================Legal============================================//
             'credits-paragraph1' : 'This site was designed and developed by our Staff member Riccardo Mordente. You can reach him for commissions and information on his webiste <a href="https://riccardomordente.com" target="_blank">riccardomordente.com</a> or with the equivalent mails <a href="mailto:info@riccardomordente.com", target="_blank">info@riccardomordente.com</a>, <a href="mailto:graphic@bsensemble.com", target="_blank">graphic@bsensemble.com</a>.',
             'credits-paragraph2' : 'The site was optimized with the usage of the Bootstrap library via <a href="https://getbootstrap.com" target="_blank">Boostrap.com</a>. A special thank you to the photographer Tizio Caio who helped us in the realization of professional photos to use in the website.',
+            //============================================Legal============================================//
+            'modal-title' : 'Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
+            'modal-subtitle' : "This website is still under development, so you might experience some issues. Here's what you can do to help us:",
+            'modal-ul1' : "",
+            'modal-ul2' : "",
+            'modal-ul3' : "",
         },
 
 
@@ -230,7 +238,7 @@ function setLanguage(language) {
 
         'it': {
             'upper_text': 'Noi siamo',
-            'lower_text': 'Un Ensemble di musica contemporanea. Esecutori e Compositori, insieme',
+            'lower_text': 'Un collettivo di musica contemporanea. Esecutori e Compositori, insieme',
             'about2': 'chi siamo',
             'team': 'team',
             'events': 'eventi',
@@ -358,6 +366,7 @@ function setLanguage(language) {
             'repertoire-organic' : "Organico",
             'repertoire-year' : "Anno",
             'repertoire-notes' : "Note",
+            'repertoire-rotate' : '<a class="bi bi-phone-landscape-fill"></a> Ruota il telefono per una vista migliore',
             'two-flutes' : "Due Flauti",
             'flute' : "Flauto",
             'clarinet' : "Clarinetto",
@@ -492,3 +501,37 @@ function updateInnerHtmlElement(id, html) {
     }
 }
 
+
+
+
+///////////////////////Mobile modal and repertoire text///////////////////////
+
+(function() {
+  
+"use strict";
+    // Verifica se l'utente sta usando un dispositivo mobile
+    function isMobile() {
+    return /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/.test(navigator.userAgent);
+    }
+
+// Funzione per mostrare l'avviso solo la prima volta che l'utente visita il sito su Firefox
+function showFirefoxAlertOnce() {
+    var isFired = localStorage.getItem('checkFired');
+    const modal = document.getElementById('modalTour');
+    if (localStorage.getItem('checkFired') == null){
+    isFired = '0';
+    }
+
+    console.log(isFired)
+    if (isFired !== '1') {
+    modal.classList.add('visible');
+    localStorage.setItem('checkFired', '1');
+    }
+}
+
+// Esegui l'avviso al caricamento completo del DOM
+document.addEventListener('DOMContentLoaded', function() {
+    showFirefoxAlertOnce();
+});
+
+})();
