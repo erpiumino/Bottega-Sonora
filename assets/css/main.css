@@ -382,7 +382,7 @@ body.scrolled .header{
     padding: 20px 20px;
     margin-left: 2px;
     font-size: 16px;
-    font-family: var(--nav-font);
+    font-family: var(--default-font);
     font-weight: 300;
     display: flex;
     align-items: center;
