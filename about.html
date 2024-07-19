@@ -55,16 +55,16 @@
 
         <nav id="navmenu" class="navmenu">
           <ul>
-            <li><a id="about2" href="about.html" class="active">About</a></li>
+            <li><a id="about2" href="about.html">About</a></li>
             <li><a id="team" href="team.html">Team</a></li>
             <li><a id="events" href="events.html">Events</a></li>
-            <li><a id="projects" href="projects.html">Projects</a></li>
+            <li><a id="projects" href="projects.html" class="active">Projects</a></li>
             <li><a id="repertoire" href="repertoire.html">Repertoire</a></li>
             <li><a id="contacts" href="contacts.html">Contacts</a></li>
             <ul id="leng">
-              <li><a id="it-btn-modal" href="#" onmousedown="setLanguage('it'); return false;" class="language-btn">IT</a>
+              <li><a id="it-btn-top" href="#" onmousedown="setLanguage('it'); return false;" class="language-btn">IT</a>
               </li>
-              <li><a id="en-btn-modal" href="#" onmousedown="setLanguage('en'); return false;" class="language-btn">EN</a>
+              <li><a id="en-btn-top" href="#" onmousedown="setLanguage('en'); return false;" class="language-btn">EN</a>
               </li>
             </ul>
           </ul>
@@ -135,46 +135,46 @@
   </header>
 
   <main class="main">
-    <section id="speakers" class="portfolio">
-      <div class="modal modal-sheet  d-block p-4 py-md-5" tabindex="-1" role="dialog" id="modalTour">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content rounded-4 shadow">
-            <div class="modal-body p-5">
-              <h2 class="BS" style="font-size: 30px!important; font-weight: 200;" class="translatable" data-key="modal-title">Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E</h2>
-              <p style="margin-top: 20px;" class="translatable" data-key="moda-subtitle">This website is still under development, so you might experience some issues. Here's what you can do to help us:</p>
 
-        <ul class="d-grid gap-4 my-5 list-unstyled small">
-          <li class="d-flex gap-4">
-            <a class="bi bi-bug-fill big-icon"><use xlink:href="#grid-fill"/></a>
-            <div class="translatable" data-key="modal ul1">
-              <h5 class="BS fw-bold">Check for bugs</h5>
-              Tilt your phone, do strange things, you know...
-            </div>
-          </li>
-          <li class="d-flex gap-4">
-            <a class="bi bi-translate big-icon"><use xlink:href="#grid-fill"/></a>
-            <div class="translatable" data-key="modal ul2">
-              <h5 class="BS fw-bold">Bad translations</h5>
-              Our developer is not payed to translate, he might have slipped on some of them
-            </div>
-          </li>
-          <li class="d-flex gap-4">
-            <a class="bi bi-envelope-fill big-icon"><use xlink:href="#grid-fill"/></a>
-            <div class="translatable" data-key="modal ul3">
-              <h5 class="BS fw-bold">Email Us</h5>
-              If you have complaints, suggestions, or if you want to vent
-            </div>
-          </li>
-            <div class="row modal-lang">
-              <a id="it-btn-top" href="#" onmousedown="setLanguage('it'); return false;" class="language-btn">IT</a>
-              <a id="en-btn-top" href="#" onmousedown="setLanguage('en'); return false;" class="language-btn">EN</a>
-            </div>
-        </ul>
-              <button type="button" class="btn btn-lg btn-primary mt-5 w-100" data-bs-dismiss="modal" onclick="document.getElementById('modalTour').classList.remove('visible')">Great, thanks!</button>
-            </div>
+    <div class="modal modal-sheet  d-block p-4 py-md-5" tabindex="-1" role="dialog" id="modalTour">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content rounded-4 shadow">
+          <div class="modal-body p-5">
+            <h2 class="BS translatable" style="font-size: 30px!important; font-weight: 200;" data-key="modal-title">Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E</h2>
+            <p style="margin-top: 20px;" class="translatable" data-key="modal-subtitle">This website is still under development, so you might experience some issues. Here's what you can do to help us:</p>
+
+      <ul class="d-grid gap-4 my-5 list-unstyled small">
+        <li class="d-flex gap-4">
+          <a class="bi bi-bug-fill big-icon"><use xlink:href="#grid-fill"/></a>
+          <div class="translatable" data-key="modal-ul1">
+            <h5 class="BS fw-bold">Check for bugs</h5>
+            Tilt your phone, do strange things, you know...
+          </div>
+        </li>
+        <li class="d-flex gap-4">
+          <a class="bi bi-translate big-icon"><use xlink:href="#grid-fill"/></a>
+          <div class="translatable" data-key="modal-ul2">
+            <h5 class="BS fw-bold">Bad translations</h5> Our developer is not payed to translate, he might have slipped on some of them
+          </div>
+        </li>
+        <li class="d-flex gap-4">
+          <a class="bi bi-envelope-fill big-icon"><use xlink:href="#grid-fill"/></a>
+          <div class="translatable" data-key="modal-ul3">
+            <h5 class="BS fw-bold">Email Us</h5> If you have complaints, suggestions, or if you want to vent
+          </div>
+        </li>
+          <div class="row modal-lang">
+            <a id="it-btn-modal" href="#" onmousedown="setLanguage('it'); return false;" class="language-btn">IT</a>
+            <a id="en-btn-modal" href="#" onmousedown="setLanguage('en'); return false;" class="language-btn">EN</a>
+          </div>
+      </ul>
+            <button type="button" class="btn btn-lg btn-primary mt-5 w-100 translatable" data-bs-dismiss="modal" onclick="document.getElementById('modalTour').classList.remove('visible')" data-key="modal-btn">Great, thanks!</button>
           </div>
         </div>
       </div>
+    </div>
+
+    <section id="speakers" class="portfolio">
 
       <div class="container">
         <div class="container section-title">
@@ -390,7 +390,7 @@
   <script src="https://kit.fontawesome.com/d23a960fcc.js" crossorigin="anonymous"></script>
 
   <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+  <script src="assets/js/main.js" defer></script>
   <script src="assets/js/content.js" defer></script>
 </body>
 

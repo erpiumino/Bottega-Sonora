@@ -223,12 +223,13 @@ function setLanguage(language) {
             //============================================Legal============================================//
             'credits-paragraph1' : 'This site was designed and developed by our Staff member Riccardo Mordente. You can reach him for commissions and information on his webiste <a href="https://riccardomordente.com" target="_blank">riccardomordente.com</a> or with the equivalent mails <a href="mailto:info@riccardomordente.com", target="_blank">info@riccardomordente.com</a>, <a href="mailto:graphic@bsensemble.com", target="_blank">graphic@bsensemble.com</a>.',
             'credits-paragraph2' : 'The site was optimized with the usage of the Bootstrap library via <a href="https://getbootstrap.com" target="_blank">Boostrap.com</a>. A special thank you to the photographer Tizio Caio who helped us in the realization of professional photos to use in the website.',
-            //============================================Legal============================================//
+            //============================================Modal============================================//
             'modal-title' : 'Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
             'modal-subtitle' : "This website is still under development, so you might experience some issues. Here's what you can do to help us:",
-            'modal-ul1' : "",
-            'modal-ul2' : "",
-            'modal-ul3' : "",
+            'modal-ul1' : '<h5 class="BS fw-bold">Check for bugs</h5> Tilt your phone, do strange things, you know...',
+            'modal-ul2' : '<h5 class="BS fw-bold">Bad translations</h5> Our developer is not payed to translate, he might have slipped on some of them',
+            'modal-ul3' : '<h5 class="BS fw-bold">Email Us</h5> If you have complaints, suggestions, or if you want to vent',
+            'modal-btn' : 'Great, thanks!',
         },
 
 
@@ -425,7 +426,14 @@ function setLanguage(language) {
             //============================================Legal============================================//
             'credits-paragraph1' : 'Questo sito è stato disegnato e sviluppato dal nostro membro dello staff Riccardo Mordente. Puoi contattarlo per commissioni e informazioni tramite il suo sito <a href="https://riccardomordente.com" target="_blank">riccardomordente.com</a> o tramite le mail equivalenti <a href="mailto:info@riccardomordente.com", target="_blank">info@riccardomordente.com</a>, <a href="mailto:graphic@bsensemble.com", target="_blank">graphic@bsensemble.com</a>.',
             'credits-paragraph2' : 'Il sito è stato ottimizzato tramite la libreria Bootstrap, che si piò facilmente trovare su <a href="https://getbootstrap.com" target="_blank">Boostrap.com</a>. Un grazie speciale al fotografo Tizio Caio, che ci ha aiutato nella realizzazione degli scatti professionali che sono stati usati nel sito.',
-        }
+            //============================================Modal============================================//
+            'modal-title' : 'Benvenuto in B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
+            'modal-subtitle' : "Il sito è ancora in fase di sviluppo, quindi potresti trovare degli errori. Ecco cosa puoi fare per aiutarci:",
+            'modal-ul1' : '<h5 class="BS fw-bold">Trova  i bug</h5> Ruota il telefono, spulcia le pagine, cose così...',
+            'modal-ul2' : '<h5 class="BS fw-bold">Traduzioni</h5> Il nostro developer non è pagato per tradurre, potrebbe aver sbagliato qualcosa',
+            'modal-ul3' : '<h5 class="BS fw-bold">Contattaci</h5> Se hai lamentele, suggerimenti, o se vuoi sfogarti',
+            'modal-btn' : 'Ok, Grazie!',
+        },
     };
 
     const currentTexts = texts[language];
@@ -521,7 +529,6 @@ function showFirefoxAlertOnce() {
     if (localStorage.getItem('checkFired') == null){
     isFired = '0';
     }
-
     console.log(isFired)
     if (isFired !== '1') {
     modal.classList.add('visible');

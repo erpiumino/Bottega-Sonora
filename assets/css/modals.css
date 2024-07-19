@@ -1,5 +1,5 @@
 .modal-sheet .modal-dialog {
-  width: 380px;
+  max-width: 400px;
   transition: bottom .75s ease-in-out;
 }
 .modal-sheet .modal-footer {
