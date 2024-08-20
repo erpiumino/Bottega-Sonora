@@ -32,10 +32,10 @@ function setLanguage(language) {
     // Set active button based on language
     document.getElementById(`${language}-btn-top`).classList.add('btn-active');
     document.getElementById(`${language}-btn-sidebar`).classList.add('btn-active');
-    if(document.getElementById(`${language}-btn-modal` == null)){}
-    else{
-        document.getElementById(`${language}-btn-modal`).classList.add('btn-active');
-    }
+    //if(document.getElementById(`${language}-btn-modal` == null)){}
+    //else{
+    //    document.getElementById(`${language}-btn-modal`).classList.add('btn-active');
+    //}
 
     const texts = {
         'en': {

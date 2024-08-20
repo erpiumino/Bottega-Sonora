@@ -1379,7 +1379,7 @@ section,
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
   pointer-events: none;
 }
 
@@ -2808,7 +2808,7 @@ section,
   }
 
   table{
-    max-width: 1500px!important;
+    max-width: 1650px!important;
   }
 }
 
@@ -2932,6 +2932,15 @@ table tbody tr a{
     display: none!important;
   }
 }
+
+@media (min-width: 1024px){
+  .event-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* oppure "cover" a seconda di come vuoi che l'immagine si adatti */
+  }
+}
+
 
 /*============================Modal============================*/
 
