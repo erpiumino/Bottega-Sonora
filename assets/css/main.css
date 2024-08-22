@@ -2941,7 +2941,6 @@ table tbody tr a{
   }
 }
 
-
 /*============================Modal============================*/
 
 @media (max-width: 768px) {
@@ -3001,7 +3000,6 @@ table tbody tr a{
 .big-icon{
   font-size: 40px;
 }
-
 
 .btn-lg{
   background-color: var(--accent-color);
