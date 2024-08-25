@@ -3015,3 +3015,7 @@ table tbody tr a{
   background-color: color-mix(in srgb, var(--accent-color), transparent 30%);
   border-color: color-mix(in srgb, var(--accent-color), transparent 30%);
 }
+
+.underline{
+  text-decoration: underline;
+}
