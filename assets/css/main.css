@@ -206,9 +206,10 @@ h6 {
   margin-top: 20px;
 }
 .footer .logo img {
-  max-height: 50px;
-  margin-right: 8px;
-  margin-top: 20px;
+  max-height: 150px;
+  min-height: 100px;
+  margin-top: auto;
+  margin-bottom: auto;
 }
 
 .header .logo h1 {
