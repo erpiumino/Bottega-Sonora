@@ -3020,3 +3020,16 @@ table tbody tr a{
 .underline{
   text-decoration: underline;
 }
+
+@media (max-width: 768px) {
+  .info p{
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: justify;
+  }
+
+  .info{
+    margin: 0;
+  }
+
+}
