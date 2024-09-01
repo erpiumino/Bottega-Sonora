@@ -300,7 +300,7 @@ function setLanguage(language) {
             'team-role-artistic-director' : 'Direttore Artistico',
             //============================================Team(Personal Page)============================================//
             'team-pp-info' : 'Informazioni Personali',
-            'team-pp-birthday' : 'Compleanno',
+            'team-pp-birthday' : 'Anno di Nascita',
             'team-pp-role' : 'Ruolo',
             'team-pp-degree' : 'Qualifica',
             'team-pp-date' : 'Membro da',
@@ -513,6 +513,8 @@ function setLanguage(language) {
 
             $('#sortTable').DataTable({
                 "language": currentTexts,
+                "lengthMenu": [ [25, 50, 100, 200], [25, 50, 100, 200] ],
+                "pageLength": 25,
                 columnDefs: [
                     { orderable: true, targets: [0, 1, 3] },
                     { orderable: false, targets: [2, 4] }

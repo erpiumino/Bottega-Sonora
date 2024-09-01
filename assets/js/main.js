@@ -336,3 +336,7 @@ window.addEventListener("resize", updateViewportMeta);
   });
 
 })();
+
+new DataTable('#sortTable', {
+  sLengthMenu: [10, 25, 50, 75, 100]
+});
