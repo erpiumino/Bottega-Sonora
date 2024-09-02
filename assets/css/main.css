@@ -104,9 +104,52 @@ body::before {
   left: 0;
   right: 0;
   bottom: 0;
-  background: #040404 url("../img/BS\ Sfondo\ Sito.png") center no-repeat;
+  background: #040404 url("../img/BS\ Sfondo\ Desktop.png") center no-repeat;
   background-size: cover;
   z-index: -1;
+}
+
+/* Decidi quale immagine mettere in base alla dimensione del dispositivo */
+@media (max-width: 768px){
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #040404 url("../img/BS\ Sfondo\ Sito.png") center no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+}
+
+@media (max-width: 1200px){
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #040404 url("../img/BS\ Sfondo\ Mobile.png") center no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
+}
+
+@media(orientation: landscape) and (max-width: 1200px){
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #040404 url("../img/BS\ Sfondo\ Sito.png") center no-repeat;
+    background-size: cover;
+    z-index: -1;
+  }
 }
 
 a {
@@ -2256,7 +2299,17 @@ section,
 
 @media(max-width:1200px){
   #speakers{
-    margin-top: 200px;
+    margin-top: 250px;
+  }
+}
+
+@media(max-width:800px){
+  #speakers{
+    margin-top: 180px;
+  }
+  .section-title {
+    margin-top: 0!important;
+    padding-top: 0!important;
   }
 }
 
@@ -2781,7 +2834,7 @@ section,
 }
 
 /* Media query per orientamento landscape */
-@media(max-width:1000px) and (orientation: landscape) {
+@media(max-width:1500px) and (orientation: landscape) {
   .sidebar{
     width: 370px;
     overflow-y: auto; /* Enable vertical scrolling */
@@ -2802,6 +2855,9 @@ section,
   overflow-x: auto; /* Enable vertical scrolling */
 }
 
+html, body {
+  overscroll-behavior: none; /* Disabilita lo scorrimento elastico globale */
+}
 
 /*=========================Repertoire=========================*/
 
@@ -3025,19 +3081,51 @@ table tbody tr a{
   text-decoration: underline;
 }
 
+@media (max-width: 1200px) {
+  .footer .logo img {
+    max-height: 80px;
+    min-height: 80px;
+  }
+  .footer-links{
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@media (max-width: 900px) {
+  #speakers .row{
+    display: inline-block;
+    width: 100%;
+  }
+  #speakers .row .col-md-6{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+  #speakers .row * .col-md-6{
+    margin-left: 0;
+  }
+}
+
+#team-pp-birthday, #team-pp-role, #team-pp-degree, #team-pp-date, #team-pp-resume, #team-pp-contact {
+  display: inline-flex;
+  gap: 10px; /* Aggiunge spazio tra l'icona e il testo */
+}
+
+#team-row .translatable p{
+  text-align: center!important;
+
+}
+
+
 @media (max-width: 768px) {
-  .info p{
+  .info p, #about-container p{
     margin: 0;
     margin-bottom: 25px;
-    text-align: justify;
-  }
-
-  #speaker p, .portfolio p{
-    text-align: justify;
+    text-align: justify!important;
   }
 
   .info{
     margin: 0;
   }
-
 }
