@@ -247,7 +247,7 @@ function setLanguage(language) {
             'copyright-paragraph1' : "All content on this site, including text, images and music, is protected by copyright and is the property of Bottega Sonora Ensemble or their respective authors. Reproduction, distribution, or modification of any content without written permission from the Ensemble or their respective authors is prohibited.",
             //============================================Modal============================================//
             'modal-title' : 'Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
-            'modal-subtitle' : "This website is still under development, so you might experience some issues. Here's what you can do to help us:",
+            'modal-subtitle' : "This website is in early access, so you might experience some issues. Here's what you can do to help us:",
             'modal-ul1' : '<h5 class="BS fw-bold">Check for bugs</h5> Tilt your phone, do strange things, you know...',
             'modal-ul2' : '<h5 class="BS fw-bold">Bad translations</h5> Our developer is not payed to translate, he might have slipped on some of them',
             'modal-ul3' : '<h5 class="BS fw-bold">Email Us</h5> If you have complaints, suggestions, or if you want to vent',
@@ -468,7 +468,7 @@ function setLanguage(language) {
             'copyright-paragraph1' : "Tutti i contenuti presenti su questo sito, inclusi testi, immagini e musica, sono protetti da copyright e sono di proprietà di Bottega Sonora Ensemble o dei rispettivi autori. È vietata la riproduzione, distribuzione, o modifica di qualsiasi contenuto senza il permesso scritto dell'Ensemble o dei rispettivi autori.",
             //============================================Modal============================================//
             'modal-title' : 'Benvenuto in B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
-            'modal-subtitle' : "Il sito è ancora in fase di sviluppo, quindi potresti trovare degli errori. Ecco cosa puoi fare per aiutarci:",
+            'modal-subtitle' : "Il sito è in accesso anticipato, quindi potresti trovare degli errori. Ecco cosa puoi fare per aiutarci:",
             'modal-ul1' : '<h5 class="BS fw-bold">Trova  i bug</h5> Ruota il telefono, spulcia le pagine, cose così...',
             'modal-ul2' : '<h5 class="BS fw-bold">Traduzioni</h5> Il nostro developer non è pagato per tradurre, potrebbe aver sbagliato qualcosa',
             'modal-ul3' : '<h5 class="BS fw-bold">Contattaci</h5> Se hai lamentele, suggerimenti, o se vuoi sfogarti',

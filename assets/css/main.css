@@ -2613,12 +2613,6 @@ section,
   }
 }
 
-@media (max-width: 767px) {
-  .schedule .nav-tabs a {
-    padding: 8px 50px;
-  }
-}
-
 @media (max-width: 480px) {
   .schedule .nav-tabs a {
     padding: 8px 30px;
@@ -3085,6 +3079,8 @@ table tbody tr a{
   .footer .logo img {
     max-height: 80px;
     min-height: 80px;
+    margin-left: auto;
+    margin-right: auto;
   }
   .footer-links{
     margin-left: auto;
@@ -3127,5 +3123,39 @@ table tbody tr a{
 
   .info{
     margin: 0;
+  }
+}
+
+
+@media (max-width: 1200px) {
+
+  #prime-esecuzioni .col-lg-7{
+    width: 80%;
+    align-items: center!important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #prime-esecuzioni .col-lg-4{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #prime-esecuzioni p{
+    text-align: justify;
+  }
+}
+
+@media (max-width: 767px) {
+  .schedule .nav-tabs a {
+    padding: 8px 50px;
+  }
+  .footer-special .logo img,
+  .footer,
+  .footer .footer-links ul li a{
+    text-align: center;
+    margin-left: auto; /* Center the button */
+    margin-right: auto; /* Center the button */
   }
 }
