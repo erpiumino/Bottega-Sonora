@@ -1968,46 +1968,6 @@ section,
   }
 }
 
-.contact .php-email-form .error-message {
-  display: none;
-  background: #df1529;
-  color: #ffffff;
-  text-align: left;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .sent-message {
-  display: none;
-  color: #ffffff;
-  background: #059652;
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-  font-weight: 600;
-}
-
-.contact .php-email-form .loading {
-  display: none;
-  background: var(--background-color);
-  text-align: center;
-  padding: 15px;
-  margin-bottom: 24px;
-}
-
-.contact .php-email-form .loading:before {
-  content: "";
-  display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid var(--accent-color);
-  border-top-color: var(--background-color);
-  animation: animate-loading 2s linear;
-}
-
 .contact .php-email-form input[type=text],
 .contact .php-email-form input[type=email],
 .contact .php-email-form textarea {
@@ -2018,6 +1978,7 @@ section,
   color: var(--default-color);
   background-color: color-mix(in srgb, var(--background-color), transparent 50%);
   border-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  margin: 0;
 }
 
 .contact .php-email-form input[type=text]:focus,
@@ -3157,5 +3118,38 @@ table tbody tr a{
     text-align: center;
     margin-left: auto; /* Center the button */
     margin-right: auto; /* Center the button */
+  }
+
+  .contacts-section{
+    width: 100%!important;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 0;
+  }
+  .form-control{
+    width: 100%!important;
+    align-self: center!important;
+    align-items: center!important;
+    margin-left: auto!important; /* Center the button */
+    margin-right: auto!important; /* Center the button */
+    padding: 0;
+  }
+
+  .info-item.option{
+    margin-left: 12px!important; /* Center the button */
+    margin-right: auto!important; /* Center the button */
+    text-align: center;
+  }
+
+  .info-item.option p{
+    align-self: center;
+    margin-left: auto!important; /* Center the button */
+    margin-right: auto!important; /* Center the button */
+  }
+
+  #contacts-box-text, #contacts-box-title{
+    margin-left: auto!important; /* Center the button */
+    margin-right: auto!important; /* Center the button */
   }
 }
