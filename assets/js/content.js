@@ -40,7 +40,7 @@ function setLanguage(language) {
     const texts = {
         'en': {
             'upper_text': 'We are',
-            'lower_text': 'A contemporary music union. Musicians and Composers, together.',
+            'lower_text': 'Not just an Ensemble.',
             'about2': 'about',
             'team': 'team',
             'events': 'events',
@@ -60,7 +60,7 @@ function setLanguage(language) {
             'team-title' : 'the Team',
             'team-subtitle' : 'Meet our Team... bla bla bla',
             'team-filter-all' : 'All',
-            'team-filter-musician' : 'Musician',
+            'team-filter-musician' : 'Ensemble',
             'team-filter-composer' : 'Composer',
             'team-filter-staff' : 'Staff',
             'team-role-clarinetist': 'Clarinetist',
@@ -246,7 +246,7 @@ function setLanguage(language) {
             'credits-paragraph2' : 'The site was optimized with the usage of the Bootstrap library via <a href="https://getbootstrap.com" target="_blank">Boostrap.com</a>. A special thank you to the photographer Manuel De Libero who helped us in the realization of professional photos to use in the website.',
             'privacy-paragraph1' :"Our website <a href='www.bsensemble.com'>www.bsensemble.com</a> does not collect or use cookies or other tracking tools. The only personal information we collect is the name and email address voluntarily provided by visitors through our contact form. This information is used exclusively to respond to requests for information, collaborations, or other communications. We do not use this data for marketing purposes or to send newsletters. The information provided will never be shared with third parties without the explicit consent of the interested parties, unless required by law.",
             'privacy-paragraph2' : "Visitors have the right to request access, correction, or deletion of their personal information that we hold. To do so, they may contact us via the email address provided in the Contact Us section. Our website does not use cookies or other tracking tools to collect information about visitors.",
-            'copyright-paragraph1' : "All content on this site, including text, images and music, is protected by copyright and is the property of Bottega Sonora Ensemble or their respective authors. Reproduction, distribution, or modification of any content without written permission from the Ensemble or their respective authors is prohibited.",
+            'copyright-paragraph1' : "All content on this site, including text, images and music, is protected by copyright and is the property of Bottega Sonora Project or their respective authors. Reproduction, distribution, or modification of any content without written permission from the Ensemble or their respective authors is prohibited.",
             //============================================Modal============================================//
             'modal-title' : 'Welcome to B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
             'modal-subtitle' : "This website is in early access, so you might experience some issues. Here's what you can do to help us:",
@@ -263,7 +263,7 @@ function setLanguage(language) {
 
         'it': {
             'upper_text': 'Noi siamo',
-            'lower_text': 'Un collettivo di musica contemporanea. Esecutori e Compositori, insieme.',
+            'lower_text': 'Non solo un Ensemble.',
             'about2': 'chi siamo',
             'team': 'team',
             'events': 'eventi',
@@ -283,7 +283,7 @@ function setLanguage(language) {
             'team-title' : 'Il Team',
             'team-subtitle' : 'Incontra il nostro Team... bla bla bla',
             'team-filter-all' : 'Tutti',
-            'team-filter-musician' : 'Esecutori',
+            'team-filter-musician' : 'Ensemble',
             'team-filter-composer' : 'Compositori',
             'team-filter-staff' : 'Staff',
             'team-role-clarinetist': 'Clarinettista',
@@ -469,7 +469,7 @@ function setLanguage(language) {
             'credits-paragraph2' : 'Il sito è stato ottimizzato tramite la libreria Bootstrap, che si piò facilmente trovare su <a href="https://getbootstrap.com" target="_blank">Boostrap.com</a>. Un grazie speciale al fotografo Manuel De Libero, che ci ha aiutato nella realizzazione degli scatti professionali che sono stati usati nel sito.',
             'privacy-paragraph1' : "Il nostro sito web <a href='www.bsensemble.com'>www.bsensemble.com</a> non raccoglie né utilizza cookie o altri strumenti di tracciamento. L'unica informazione personale che raccogliamo è il nome e l'indirizzo email forniti volontariamente dai visitatori tramite il nostro form di contatto. Queste informazioni vengono utilizzate esclusivamente per rispondere alle richieste di informazioni, collaborazioni, o altre comunicazioni. Non utilizziamo questi dati per scopi di marketing o per l'invio di newsletter. Le informazioni fornite non verranno mai condivise con terze parti senza il consenso esplicito degli interessati, a meno che non sia richiesto dalla legge.",
             'privacy-paragraph2' : "I visitatori hanno il diritto di richiedere l'accesso, la correzione o la cancellazione delle loro informazioni personali in nostro possesso. Per farlo, possono contattarci tramite l'indirizzo email fornito nella sezione Contatti. Il nostro sito web non utilizza cookie o altri strumenti di tracciamento per raccogliere informazioni sui visitatori.",
-            'copyright-paragraph1' : "Tutti i contenuti presenti su questo sito, inclusi testi, immagini e musica, sono protetti da copyright e sono di proprietà di Bottega Sonora Ensemble o dei rispettivi autori. È vietata la riproduzione, distribuzione, o modifica di qualsiasi contenuto senza il permesso scritto dell'Ensemble o dei rispettivi autori.",
+            'copyright-paragraph1' : "Tutti i contenuti presenti su questo sito, inclusi testi, immagini e musica, sono protetti da copyright e sono di proprietà di Bottega Sonora Project o dei rispettivi autori. È vietata la riproduzione, distribuzione, o modifica di qualsiasi contenuto senza il permesso scritto dell'Ensemble o dei rispettivi autori.",
             //============================================Modal============================================//
             'modal-title' : 'Benvenuto in B<span class="fw-bold mb-0" style="color: var(--accent-color);">S</span>E',
             'modal-subtitle' : "Il sito è in accesso anticipato, quindi potresti trovare degli errori. Ecco cosa puoi fare per aiutarci:",
