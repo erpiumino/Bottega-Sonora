@@ -2209,7 +2209,7 @@ section,
 }
 
 .slider .slide:nth-child(1) {
-  background-image: url('../img/Gallery/Gallery1.png');
+  background-image: url('../img/Gallery/Gallery1.JPG');
   animation-delay: -0s;
 }
 
@@ -2219,7 +2219,7 @@ section,
 }
 
 .slider .slide:nth-child(3) {
-  background-image: url('../img/Gallery/Gallery3.JPG');
+  background-image: url('../img/Gallery/Gallery3.png');
   animation-delay: -16s;
 }
 
@@ -2276,8 +2276,6 @@ section,
 
 /* Media query for landscape orientation */
 @media(max-width:1000px) and (orientation: landscape) {
-  body::before{
-  }
   
   #speakers{
     margin-top: 150px;
