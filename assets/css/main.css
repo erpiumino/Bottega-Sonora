@@ -3155,29 +3155,10 @@ table tbody tr a{
 
 /*=====================Prime esecuzioni Video=========================*/
 
-/* CSS per il video a schermo intero */
-.video-background {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70%;
-  margin-top:-80px;
-  z-index: -1; /* Fa in modo che il video sia in background */
-}
-
-.video-background iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
 #prime-esecuzioni-section {
   padding: 60px 0 30px 0;
   background-color: var(--heading-color);
-  margin-top: 400px;
+  margin-top: 1000px;
 }
 
 .bd-placeholder-img {
@@ -3293,4 +3274,8 @@ table tbody tr a{
 
 .align-items-start{
   margin-bottom: 50px;
+}
+
+.prime-esecuzioni::before{
+  background: #040404 url('/assets/img/LucaSfondo.png') center no-repeat!important;
 }
