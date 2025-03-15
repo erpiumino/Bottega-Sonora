@@ -2146,10 +2146,7 @@ section,
   .container, main{
     overflow-y: hidden;
   }
-  .play-btn{
-    scale: 0.7;
-    margin-top: 10px!important;
-  }
+
   #lower_text{
     width: 80%;
     margin-left: auto;
@@ -3277,5 +3274,5 @@ table tbody tr a{
 }
 
 .prime-esecuzioni::before{
-  background: #040404 url('/assets/img/LucaSfondo.png') center no-repeat!important;
+  background: #040404 url('/assets/img/Prime\ Esecuzioni\ Sfondo.png') center no-repeat!important;
 }
