@@ -3077,6 +3077,12 @@ table tbody tr a{
     text-align: justify!important;
   }
 
+  .pe p{
+    margin: 0;
+    margin-bottom: 25px;
+    text-align: justify!important;
+  }
+
   .info{
     margin: 0;
   }
@@ -3274,5 +3280,32 @@ table tbody tr a{
 }
 
 .prime-esecuzioni::before{
-  background: #040404 url('/assets/img/Prime\ Esecuzioni\ Sfondo.png') center no-repeat!important;
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #000000 url('/assets/img/Prime\ Esecuzioni\ Sfondo.png') center no-repeat!important;
+  background-size: cover;
+}
+
+@media (max-width: 768px){
+  .prime-esecuzioni::before{
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #000000 url('/assets/img/Prime\ Esecuzioni\ Sfondo\ Mobile.png') center no-repeat!important;
+    background-size: cover;
+  }
+}
+
+.Announcement{
+  max-width: fit-content;
+  margin-left: auto!important;
+  margin-right: auto!important;
+  margin-bottom: 30px;
 }
