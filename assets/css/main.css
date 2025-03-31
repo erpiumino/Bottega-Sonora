@@ -3298,8 +3298,11 @@ table tbody tr a{
     left: 0;
     right: 0;
     bottom: 0;
-    background: #000000 url('/assets/img/Prime\ Esecuzioni\ Sfondo\ Mobile.png') center no-repeat!important;
+    background: #000000 url('/assets/img/Prime\ Esecuzioni\ Sfondo\ Mobile.png') no-repeat!important;
     background-size: cover;
+  }
+  .pe{
+    margin-top: 20px!important;
   }
 }
 
