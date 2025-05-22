@@ -277,7 +277,7 @@ function setLanguage(language) {
             'pe-bullet1' : 'Baccano Prize – Sponsored by the Identità Musicali Association, this prize grants the performance of one or more selected compositions in a dedicated concert organized as part of their concert season in Francavilla al Mare.',
             'pe-bullet2' : 'MEP Prize – Established by Music Ensemble Publishing, this prize consists of the publication of one or more compositions deemed particularly deserving.',
             'pe-send-email' : 'Send Email',
-            'pe-bando-button' : 'Read the Announcement',
+            'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando II EN.pdf" target="_blank" class="btn btn-primary"> Read the Announcement',
         },
 
 
@@ -524,7 +524,7 @@ function setLanguage(language) {
             'pe-bullet1' : 'Premio Baccano – offerto dall’associazione Identità Musicali, prevede l’esecuzione di una o più composizioni selezionate all’interno di un concerto dedicato, organizzato durante la loro stagione a Francavilla al Mare.',
             'pe-bullet2' : 'Premio MEP – istituito dalla casa editrice Music Ensemble Publishing, consiste nella pubblicazione di una o più composizioni ritenute meritevoli.',
             'pe-send-email' : 'Manda Email',
-            'pe-bando-button' : 'Leggi il Bando',
+            'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando II.pdf" target="_blank" class="btn btn-primary"> Leggi il Bando',
         },
     };
 
