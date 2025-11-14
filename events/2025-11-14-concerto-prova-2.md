@@ -1,8 +1,29 @@
 ---
-title: Concerto prova 2
-description: Dovrebbe essere nel passato
-pubDate: 14/11/2024
-time: 18:00
-place: Roma
-heroImage: /assets/eventi/40_1.jpg
+title: Mirroring - Classici Riflessi
+description: >-
+  Secondo e ultimo appuntamento della rassegna di concerti di musica
+  contemporanea di Identità Musicali: Mirroring - Classici riflessi.
+
+  E un gioco di specchi, pensato per rendere emozionante l'incontro con questa
+  musica: uno spazio per l'arte contemporanea, dove il suono si sente fin sulla
+  pelle; un'immagine fotografica che accompagna il programma, opera d'arte che
+  si affianca all'esecuzione; un programma musicale che specchia tre
+  composizioni contemporanee in un grande classico del repertorio.
+
+  Così vogliamo rispecchiare la nostra idee di musica contemporanea: viva,
+  inclusiva, coinvolgente, eseguita dai nostri musicisti più entusiasti.
+
+
+  Luca Giuliani (cl), Paolo Capanna (vla) e Jacopo Petrucci (pno) eseguiranno
+  alcuni brani composti fra il 2024 e il 2025, selezionati dalla nostra call
+  "Prime Esecuzioni", che ha toccato tutto il mondo: si tratta dei tre vincitori
+  del Premio Baccano. Le nuove composizioni dovranno guardarsi allo specchio con
+  il celebre trio dei birilli di W.A. Mozart svelandoci connessioni inaspettate.
+
+  Ingresso libero, prenotazione obbligatoria
+pubDate: 20/11/2025
+time: 18:30
+place: Fondazione La Rocca (PE)
+url: https://maps.app.goo.gl/ALy68fZteMukfXDU9
+heroImage: /assets/eventi/Mirroring. Post IG.png
 ---
