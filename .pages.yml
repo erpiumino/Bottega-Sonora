@@ -1,13 +1,13 @@
-# Media configuration (opzionale, ma utile per immagini)
-media:
-  input: "assets/eventi"
-  output: "/assets/eventi"
+# Pages CMS configuration
+site:
+  title: "Bottega Sonora CMS"
+  logo: "/assets/img/logo.png"
 
-content:
+collections:
   - name: "events"
     label: "Concerti"
     path: "events"
-    type: "collection"      # oppure "directory" ma meglio "collection"
+    type: "directory"
     format: "json"
     create: true
     match: "**/*.json"
@@ -18,23 +18,13 @@ content:
         type: "string"
         required: true
 
-      - name: "title_it"
-        label: "Titolo (IT)"
+      - name: "title"
+        label: "Titolo"
         type: "string"
         required: true
 
-      - name: "desc_it"
-        label: "Descrizione (IT)"
-        type: "text"
-        required: true
-
-      - name: "title_en"
-        label: "Titolo (EN)"
-        type: "string"
-        required: true
-
-      - name: "desc_en"
-        label: "Descrizione (EN)"
+      - name: "description"
+        label: "Descrizione"
         type: "text"
         required: true
 
@@ -46,6 +36,7 @@ content:
       - name: "time"
         label: "Orario"
         type: "string"
+        required: false
 
       - name: "place"
         label: "Luogo"
@@ -73,20 +64,11 @@ content:
       output: |
         {
           "id": "{{id}}",
-          "it": {
-            "title": "{{title_it}}",
-            "description": {{ desc_it | jsonify }},
-            "place": "{{place}}",
-            "date": "{{date}}",
-            "time": "{{time}}"
-          },
-          "en": {
-            "title": "{{title_en}}",
-            "description": {{ desc_en | jsonify }},
-            "place": "{{place}}",
-            "date": "{{date}}",
-            "time": "{{time}}"
-          },
+          "title": "{{title}}",
+          "description": {{ description | jsonify }},
+          "place": "{{place}}",
+          "date": "{{date}}",
+          "time": "{{time}}",
           "maps": "{{maps_link}}",
           "tickets": "{{ticket_link}}",
           "video": "{{video_link}}",
