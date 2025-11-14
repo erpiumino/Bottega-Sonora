@@ -1,13 +1,13 @@
-version: 1
-site:
-  title: "Bottega Sonora CMS"
-  logo: "/assets/img/logo.png"
+# Media configuration (opzionale, ma utile per immagini)
+media:
+  input: "assets/eventi"
+  output: "/assets/eventi"
 
-collections:
+content:
   - name: "events"
     label: "Concerti"
     path: "events"
-    type: "directory"
+    type: "collection"      # oppure "directory" ma meglio "collection"
     format: "json"
     create: true
     match: "**/*.json"
