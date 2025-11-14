@@ -506,66 +506,64 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/content.js" defer></script>
 <script>
-  // Recupera gli eventi dal JSON generato da PagesCMS
-  fetch('/events.json')
-    .then(response => response.json())
-    .then(events => {
-      const upcomingContainer = document.querySelector('#day-1');
-      const pastContainer = document.querySelector('#day-2');
-      const today = new Date();
+  // Array di eventi generato dal JSON di PagesCMS
+  const events = window.eventsJSON || []; // supponendo che il JSON venga caricato come window.eventsJSON
 
-      // Funzione per convertire data stringa "dd/MM/yyyy" e opzionale time "HH:mm" in Date
-      function parseDate(dateStr, timeStr = '00:00') {
-        const [day, month, year] = dateStr.split('/');
-        return new Date(`${year}-${month}-${day}T${timeStr}`);
-      }
+  function parseDate(pubDate) {
+    // Consideriamo solo giorno/mese/anno, ignorando il tempo
+    const [day, month, year] = pubDate.split('/');
+    return new Date(`${year}-${month}-${day}`);
+  }
 
-      // Funzione per creare l'HTML dell'evento
-      function createEventHTML(event) {
-        const container = document.createElement('div');
-        container.className = "row mb-2";
-        container.innerHTML = `
-          <div class="col-md-12">
-            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-              <div class="col-auto d-none d-lg-block">
-                <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
-              </div>
-              <div class="col p-4 d-flex flex-column position-static">
-                <strong class="d-inline-block mb-2 date-time">
-                  <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp; &nbsp; &nbsp;
-                  <i class="bi bi-clock-fill"></i> ${event.time}
-                </strong>
-                <h3 class="mb-0">${event.title}</h3>
-                <div class="mb-1 place">
-                  <i class="bi bi-geo-alt-fill"></i>
-                  <a class="place-maps" href="${event.url || '#'}" target="_blank">${event.place}</a>
-                </div>
-                <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
-              </div>
+  function createEventHTML(event) {
+    const container = document.createElement('div');
+    container.className = "row mb-2";
+
+    container.innerHTML = `
+      <div class="col-md-12">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col-auto d-none d-lg-block">
+            <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
+          </div>
+          <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 date-time">
+              <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp; &nbsp; &nbsp;
+              <i class="bi bi-clock-fill"></i> ${event.time || ''}
+            </strong>
+            <h3 class="mb-0">${event.title}</h3>
+            <div class="mb-1 place">
+              <i class="bi bi-geo-alt-fill"></i> 
+              <a class="place-maps" href="${event.url || '#'}" target="_blank">${event.place}</a>
+            </div>
+            <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
+            <div class="row-md">
+              ${event.tickets ? `<a href="${event.tickets}" target="_blank" class="tickets">Info</a>` : ''}
             </div>
           </div>
-        `;
-        return container;
-      }
+        </div>
+      </div>
+    `;
+    return container;
+  }
 
-      // Ordina tutti gli eventi per data crescente
-      events.sort((a, b) => parseDate(a.pubDate, a.time) - parseDate(b.pubDate, b.time));
+  const upcomingContainer = document.querySelector('#day-1');
+  const pastContainer = document.querySelector('#day-2');
 
-      // Inserisci gli eventi in Upcoming o Past
-      events.forEach(event => {
-        const eventDate = parseDate(event.pubDate, event.time);
-        const el = createEventHTML(event);
+  const now = new Date();
 
-        if (eventDate >= today) {
-          // Upcoming: aggiunge all'inizio
-          upcomingContainer.prepend(el);
-        } else {
-          // Past: aggiunge all'inizio (dal più recente al più vecchio)
-          pastContainer.prepend(el);
-        }
-      });
-    })
-    .catch(err => console.error('Errore nel caricamento degli eventi:', err));
+  // Ordina per data (solo giorno/mese/anno) e inserisci in cima al blocco
+  events.sort((a, b) => parseDate(b.pubDate) - parseDate(a.pubDate));
+
+  events.forEach(event => {
+    const eventDate = parseDate(event.pubDate);
+    const el = createEventHTML(event);
+
+    if (eventDate >= now) {
+      upcomingContainer.prepend(el); // eventi futuri in cima
+    } else {
+      pastContainer.prepend(el);     // eventi passati in cima
+    }
+  });
 </script>
 
 

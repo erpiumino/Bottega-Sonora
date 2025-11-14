@@ -37,6 +37,10 @@ content:
         label: Immagine
         type: image
 
+      - name: tickets
+        label: Link Biglietti
+        type: string
+
 media:
   input: assets/eventi
   output: /assets/eventi
