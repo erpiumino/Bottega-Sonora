@@ -1,0 +1,28 @@
+collections:
+  concerti:
+    label: "Eventi"
+    folder: "eventi"
+    create: true
+    fields:
+      title:
+        type: string
+        label: Titolo
+      date:
+        type: date
+        label: Data
+      time:
+        type: time
+        label: Time
+      luogo:
+        type: string
+        label: Luogo
+      image:
+        type: image
+        label: Immagine
+      body:
+        type: markdown
+        label: Descrizione
+
+media:
+  folder: "assets/eventi"
+  public: "/assets/eventi"
