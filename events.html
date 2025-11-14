@@ -501,85 +501,76 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="https://kit.fontawesome.com/d23a960fcc.js" crossorigin="anonymous"></script>
-<script>
-async function loadCMS_Events() {
-  // Cartella dei file Markdown/JSON generati da PagesCMS
-  const cmsFolder = '/events/'; 
-
-  try {
-    const response = await fetch(cmsFolder);
-    const text = await response.text();
-
-    // Estrai file .json o .md
-    const files = [...text.matchAll(/href="([^"]+\.(?:json|md))"/g)].map(m => m[1]);
-
-    const events = [];
-
-    for (const file of files) {
-      try {
-        const res = await fetch(`${cmsFolder}${file}`);
-        const data = await res.json(); // PagesCMS esporta JSON
-        events.push(data);
-      } catch (err) {
-        console.warn('Errore caricamento evento CMS', file, err);
-      }
-    }
-
-    // Ordina per data
-    events.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
-
-    const now = new Date();
-    const upcoming = events.filter(e => new Date(e.pubDate) >= now);
-    const past = events.filter(e => new Date(e.pubDate) < now);
-
-    appendEvents(upcoming, '#day-1');
-    appendEvents(past, '#day-2');
-
-  } catch (err) {
-    console.error('Errore caricamento cartella CMS:', err);
-  }
-}
-
-function appendEvents(list, containerSelector) {
-  const container = document.querySelector(containerSelector);
-  if (!container) return;
-
-  list.forEach(ev => {
-    const html = `
-      <div class="row mb-2"><!--Inizio Evento-->
-        <div class="col-md-12">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col-auto d-none d-lg-block">
-              <img src="${ev.heroImage}" height="300" class="event-img"/>
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 date-time">
-                <i class="bi bi-calendar-date-fill"></i> ${ev.pubDate} &nbsp;&nbsp;
-                <i class="bi bi-clock-fill"></i> ${ev.time || ''}
-              </strong>
-              <h3 class="mb-0">${ev.title}</h3>
-              <div class="mb-1 place">
-                <i class="bi bi-geo-alt-fill"></i> 
-                ${ev.url ? `<a href="${ev.url}" target="_blank">${ev.place}</a>` : ev.place}
-              </div>
-              <p class="card-text mb-auto event-text">${ev.description}</p>
-            </div>
-          </div>
-        </div>
-      </div><!--Fine Evento-->
-    `;
-    container.innerHTML += html; // aggiunge senza cancellare gli eventi esistenti
-  });
-}
-
-document.addEventListener('DOMContentLoaded', loadCMS_Events);
-</script>
-
-
-
+  <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/content.js" defer></script>
+  <script>
+    // Esempio: array di eventi generato da PagesCMS
+    const events = [
+      {
+        title: "Concerto di Natale",
+        description: "Concerto di Natale di Bottega Sonora Ensemble",
+        pubDate: "14/12/2025",
+        time: "12:23",
+        place: "Roma",
+        heroImage: "/assets/eventi/34_1.jpg",
+        url: "#"
+      },
+      // altri eventi...
+    ];
+
+    function parseDate(dateStr, timeStr) {
+      const [day, month, year] = dateStr.split('/');
+      return new Date(`${year}-${month}-${day}T${timeStr}`);
+    }
+
+    function createEventHTML(event) {
+      const container = document.createElement('div');
+      container.className = "row mb-2";
+
+      container.innerHTML = `
+        <div class="col-md-12">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-auto d-none d-lg-block">
+              <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
+            </div>
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 date-time">
+                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp; &nbsp; &nbsp;
+                <i class="bi bi-clock-fill"></i> ${event.time}
+              </strong>
+              <h3 class="mb-0">${event.title}</h3>
+              <div class="mb-1 place">
+                <i class="bi bi-geo-alt-fill"></i> 
+                <a class="place-maps" href="${event.url}" target="_blank">${event.place}</a>
+              </div>
+              <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      return container;
+    }
+
+    const upcomingContainer = document.querySelector('#day-1');
+    const pastContainer = document.querySelector('#day-2');
+
+    // Ordina gli eventi per data
+    events.sort((a, b) => parseDate(a.pubDate, a.time) - parseDate(b.pubDate, b.time));
+
+    // Inserisci gli eventi nei rispettivi contenitori
+    const now = new Date();
+    events.forEach(event => {
+      const eventDate = parseDate(event.pubDate, event.time);
+      const el = createEventHTML(event);
+      if (eventDate >= now) {
+        upcomingContainer.appendChild(el);
+      } else {
+        pastContainer.appendChild(el);
+      }
+    });
+  </script>
 </body>
 
 </html>

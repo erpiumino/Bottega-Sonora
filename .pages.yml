@@ -38,5 +38,5 @@ content:
         type: image
 
 media:
-  input: public/media
-  output: /media
+  input: assets/eventi
+  output: /assets/eventi
