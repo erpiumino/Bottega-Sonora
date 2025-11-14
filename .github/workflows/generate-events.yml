@@ -1,0 +1,35 @@
+# .github/workflows/generate-events.yml
+name: Generate Events JSON
+
+on:
+  push:
+    paths:
+      - 'events/**'   # Trigger solo se cambia qualcosa nella cartella events/
+  workflow_dispatch: # Permette anche l'esecuzione manuale dal pannello Actions
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate events.json
+        run: node generate-events.js
+
+      - name: Commit updated events.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add events.json
+          git diff --quiet || git commit -m "Regenerate events.json [skip ci]"
+          git push
