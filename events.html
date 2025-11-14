@@ -508,17 +508,15 @@
 <script>
 async function loadEvents() {
   try {
-    // Carica il JSON generato da PagesCMS
     const response = await fetch('/events.json');
     const events = await response.json();
 
     const upcomingContainer = document.querySelector('#day-1');
     const pastContainer = document.querySelector('#day-2');
 
-    function parseDate(dateStr, timeStr) {
+    function parseDate(dateStr) {
       const [day, month, year] = dateStr.split('/');
-      const [hours, minutes] = timeStr.split(':');
-      return new Date(year, month - 1, day, hours, minutes);
+      return new Date(year, month - 1, day); // Ignora l'orario
     }
 
     function createEventHTML(event) {
@@ -533,8 +531,7 @@ async function loadEvents() {
             </div>
             <div class="col p-4 d-flex flex-column position-static">
               <strong class="d-inline-block mb-2 date-time">
-                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp;&nbsp;&nbsp;
-                <i class="bi bi-clock-fill"></i> ${event.time}
+                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate}
               </strong>
               <h3 class="mb-0">${event.title}</h3>
               <div class="mb-1 place">
@@ -549,14 +546,16 @@ async function loadEvents() {
       return container;
     }
 
-    // Ordina gli eventi per data
-    events.sort((a, b) => parseDate(a.pubDate, a.time) - parseDate(b.pubDate, b.time));
+    // Ordina per giorno/mese/anno
+    events.sort((a, b) => parseDate(a.pubDate) - parseDate(b.pubDate));
 
-    const now = new Date();
+    const today = new Date();
+    today.setHours(0,0,0,0); // Considera solo la data
+
     events.forEach(event => {
-      const eventDate = parseDate(event.pubDate, event.time);
+      const eventDate = parseDate(event.pubDate);
       const el = createEventHTML(event);
-      if (eventDate >= now) {
+      if (eventDate >= today) {
         upcomingContainer.appendChild(el);
       } else {
         pastContainer.appendChild(el);
@@ -568,9 +567,9 @@ async function loadEvents() {
   }
 }
 
-// Avvia il caricamento quando la pagina è pronta
 document.addEventListener('DOMContentLoaded', loadEvents);
 </script>
+
 
 
 
