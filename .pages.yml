@@ -1,52 +1,42 @@
-# Configurazione per usare immagini da aggiungere agli eventi
-media:
-  input: "assets/events"    # cartella dove carichi le immagini dal CMS
-  output: "/assets/events"  # percorso pubblico sul sito
-
-# Configurazione dei contenuti
 content:
-  - name: "events"
-    label: "Concerti"
-    path: "events"   # cartella dove salvare i file JSON degli eventi
-    type: "file"
+  - name: event
+    label: Evento
+    path: events
+    filename: '{year}-{month}-{day}-{fields.title}.md'
+    type: collection
+    view:
+      fields: [heroImage, title, pubDate]
     fields:
-      - name: "title"
-        label: "Titolo"
+      - name: title
+        label: Titolo
         type: string
-        required: true
 
-      - name: "description"
-        label: "Descrizione"
+      - name: description
+        label: Descrizione
         type: text
-        required: true
 
-      - name: "date"
-        label: "Data"
+      - name: pubDate
+        label: Data
         type: date
-        required: true
+        options:
+          format: dd/MM/yyyy
 
-      - name: "time"
-        label: "Orario"
+      - name: time
+        label: Orario
         type: string
 
-      - name: "place"
-        label: "Luogo"
-        type: string
-        required: true
-
-      - name: "maps"
-        label: "Google Maps Link"
+      - name: place
+        label: Luogo
         type: string
 
-      - name: "tickets"
-        label: "Ticket / Info Link"
+      - name: url
+        label: Link GoogleMaps
         type: string
 
-      - name: "video"
-        label: "Video Link"
-        type: string
-
-      - name: "image"
-        label: "Immagine"
+      - name: heroImage
+        label: Immagine
         type: image
-        required: true
+
+media:
+  input: public/media
+  output: /media
