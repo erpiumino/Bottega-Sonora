@@ -505,23 +505,12 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
   <script src="assets/js/content.js" defer></script>
-  <script>
-    // Esempio: array di eventi generato da PagesCMS
-    const events = [
-      {
-        title: "Concerto di Natale",
-        description: "Concerto di Natale di Bottega Sonora Ensemble",
-        pubDate: "14/12/2025",
-        time: "12:23",
-        place: "Roma",
-        heroImage: "/assets/eventi/34_1.jpg",
-        url: "#"
-      },
-      // altri eventi...
-    ];
-
+<script>
+fetch('/events.json')
+  .then(res => res.json())
+  .then(events => {
     function parseDate(dateStr, timeStr) {
-      const [day, month, year] = dateStr.split('/');
+      const [year, month, day] = dateStr.split('-'); // ISO dal JSON
       return new Date(`${year}-${month}-${day}T${timeStr}`);
     }
 
@@ -556,10 +545,8 @@
     const upcomingContainer = document.querySelector('#day-1');
     const pastContainer = document.querySelector('#day-2');
 
-    // Ordina gli eventi per data
     events.sort((a, b) => parseDate(a.pubDate, a.time) - parseDate(b.pubDate, b.time));
 
-    // Inserisci gli eventi nei rispettivi contenitori
     const now = new Date();
     events.forEach(event => {
       const eventDate = parseDate(event.pubDate, event.time);
@@ -570,7 +557,9 @@
         pastContainer.appendChild(el);
       }
     });
-  </script>
+  });
+</script>
+
 </body>
 
 </html>
