@@ -506,69 +506,68 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/content.js" defer></script>
 <script>
-async function loadEvents() {
-  try {
-    const response = await fetch('/events.json');
-    const events = await response.json();
+  // Recupera gli eventi dal JSON generato da PagesCMS
+  fetch('/events.json')
+    .then(response => response.json())
+    .then(events => {
+      const upcomingContainer = document.querySelector('#day-1');
+      const pastContainer = document.querySelector('#day-2');
+      const today = new Date();
 
-    const upcomingContainer = document.querySelector('#day-1');
-    const pastContainer = document.querySelector('#day-2');
+      // Funzione per convertire data stringa "dd/MM/yyyy" e opzionale time "HH:mm" in Date
+      function parseDate(dateStr, timeStr = '00:00') {
+        const [day, month, year] = dateStr.split('/');
+        return new Date(`${year}-${month}-${day}T${timeStr}`);
+      }
 
-    function parseDate(dateStr) {
-      const [day, month, year] = dateStr.split('/');
-      return new Date(year, month - 1, day); // Ignora l'orario
-    }
-
-    function createEventHTML(event) {
-      const container = document.createElement('div');
-      container.className = "row mb-2";
-
-      container.innerHTML = `
-        <div class="col-md-12">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col-auto d-none d-lg-block">
-              <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
-            </div>
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 date-time">
-                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate}
-              </strong>
-              <h3 class="mb-0">${event.title}</h3>
-              <div class="mb-1 place">
-                <i class="bi bi-geo-alt-fill"></i> 
-                <a class="place-maps" href="${event.url || '#'}" target="_blank">${event.place}</a>
+      // Funzione per creare l'HTML dell'evento
+      function createEventHTML(event) {
+        const container = document.createElement('div');
+        container.className = "row mb-2";
+        container.innerHTML = `
+          <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col-auto d-none d-lg-block">
+                <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
               </div>
-              <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 date-time">
+                  <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp; &nbsp; &nbsp;
+                  <i class="bi bi-clock-fill"></i> ${event.time}
+                </strong>
+                <h3 class="mb-0">${event.title}</h3>
+                <div class="mb-1 place">
+                  <i class="bi bi-geo-alt-fill"></i>
+                  <a class="place-maps" href="${event.url || '#'}" target="_blank">${event.place}</a>
+                </div>
+                <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
+              </div>
             </div>
           </div>
-        </div>
-      `;
-      return container;
-    }
-
-    // Ordina per giorno/mese/anno
-    events.sort((a, b) => parseDate(a.pubDate) - parseDate(b.pubDate));
-
-    const today = new Date();
-    today.setHours(0,0,0,0); // Considera solo la data
-
-    events.forEach(event => {
-      const eventDate = parseDate(event.pubDate);
-      const el = createEventHTML(event);
-      if (eventDate >= today) {
-        upcomingContainer.appendChild(el);
-      } else {
-        pastContainer.appendChild(el);
+        `;
+        return container;
       }
-    });
 
-  } catch (err) {
-    console.error('Errore caricando gli eventi:', err);
-  }
-}
+      // Ordina tutti gli eventi per data crescente
+      events.sort((a, b) => parseDate(a.pubDate, a.time) - parseDate(b.pubDate, b.time));
 
-document.addEventListener('DOMContentLoaded', loadEvents);
+      // Inserisci gli eventi in Upcoming o Past
+      events.forEach(event => {
+        const eventDate = parseDate(event.pubDate, event.time);
+        const el = createEventHTML(event);
+
+        if (eventDate >= today) {
+          // Upcoming: aggiunge all'inizio
+          upcomingContainer.prepend(el);
+        } else {
+          // Past: aggiunge all'inizio (dal più recente al più vecchio)
+          pastContainer.prepend(el);
+        }
+      });
+    })
+    .catch(err => console.error('Errore nel caricamento degli eventi:', err));
 </script>
+
 
 
 
