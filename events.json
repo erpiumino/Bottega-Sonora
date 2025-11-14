@@ -1,21 +1,5 @@
 [
   {
-    "title": "AAAAAAAAAA",
-    "description": "AAAAAAAAAA",
-    "pubDate": "15/01/2026",
-    "time": "Si",
-    "place": "No",
-    "heroImage": "/assets/eventi/00000-1810066472.png"
-  },
-  {
-    "title": "Concerto di Natale",
-    "description": "Concerto di Natale di Bottega Sonora Ensemble",
-    "pubDate": "14/12/2025",
-    "time": 743,
-    "place": "Roma",
-    "heroImage": "/media/34_1.jpg"
-  },
-  {
     "title": "Concerto prova 2",
     "description": "Dovrebbe essere nel passato",
     "pubDate": "14/11/2024",
