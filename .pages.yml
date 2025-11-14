@@ -1,54 +1,52 @@
+# Configurazione per usare immagini da aggiungere agli eventi
+media:
+  input: "assets/events"    # cartella dove carichi le immagini dal CMS
+  output: "/assets/events"  # percorso pubblico sul sito
+
+# Configurazione dei contenuti
 content:
   - name: "events"
     label: "Concerti"
-    folder: "events"
-    media: 
-      - name: "image"
-        label: "Immagine Evento"
-        type: "image"
-        required: true
+    path: "events"   # cartella dove salvare i file JSON degli eventi
+    type: "file"
     fields:
       - name: "title"
         label: "Titolo"
-        type: "string"
+        type: string
         required: true
 
       - name: "description"
         label: "Descrizione"
-        type: "text"
+        type: text
         required: true
 
       - name: "date"
         label: "Data"
-        type: "date"
+        type: date
         required: true
 
       - name: "time"
         label: "Orario"
-        type: "string"
+        type: string
 
       - name: "place"
         label: "Luogo"
-        type: "string"
+        type: string
         required: true
 
-      - name: "maps_link"
+      - name: "maps"
         label: "Google Maps Link"
-        type: "string"
+        type: string
 
-      - name: "ticket_link"
+      - name: "tickets"
         label: "Ticket / Info Link"
-        type: "string"
+        type: string
 
-      - name: "video_link"
+      - name: "video"
         label: "Video Link"
-        type: "string"
+        type: string
 
-      - name: "status"
-        label: "Stato Evento"
-        type: "select"
-        options:
-          - "upcoming"
-          - "past"
+      - name: "image"
+        label: "Immagine"
+        type: image
         required: true
-        help: "Seleziona se l'evento è futuro (upcoming) o passato (past)"
