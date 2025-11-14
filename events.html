@@ -506,12 +506,19 @@
   <script src="assets/js/main.js"></script>
   <script src="assets/js/content.js" defer></script>
 <script>
-fetch('/events.json')
-  .then(res => res.json())
-  .then(events => {
+async function loadEvents() {
+  try {
+    // Carica il JSON generato da PagesCMS
+    const response = await fetch('/events.json');
+    const events = await response.json();
+
+    const upcomingContainer = document.querySelector('#day-1');
+    const pastContainer = document.querySelector('#day-2');
+
     function parseDate(dateStr, timeStr) {
-      const [year, month, day] = dateStr.split('-'); // ISO dal JSON
-      return new Date(`${year}-${month}-${day}T${timeStr}`);
+      const [day, month, year] = dateStr.split('/');
+      const [hours, minutes] = timeStr.split(':');
+      return new Date(year, month - 1, day, hours, minutes);
     }
 
     function createEventHTML(event) {
@@ -526,13 +533,13 @@ fetch('/events.json')
             </div>
             <div class="col p-4 d-flex flex-column position-static">
               <strong class="d-inline-block mb-2 date-time">
-                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp; &nbsp; &nbsp;
+                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp;&nbsp;&nbsp;
                 <i class="bi bi-clock-fill"></i> ${event.time}
               </strong>
               <h3 class="mb-0">${event.title}</h3>
               <div class="mb-1 place">
                 <i class="bi bi-geo-alt-fill"></i> 
-                <a class="place-maps" href="${event.url}" target="_blank">${event.place}</a>
+                <a class="place-maps" href="${event.url || '#'}" target="_blank">${event.place}</a>
               </div>
               <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
             </div>
@@ -542,9 +549,7 @@ fetch('/events.json')
       return container;
     }
 
-    const upcomingContainer = document.querySelector('#day-1');
-    const pastContainer = document.querySelector('#day-2');
-
+    // Ordina gli eventi per data
     events.sort((a, b) => parseDate(a.pubDate, a.time) - parseDate(b.pubDate, b.time));
 
     const now = new Date();
@@ -557,8 +562,16 @@ fetch('/events.json')
         pastContainer.appendChild(el);
       }
     });
-  });
+
+  } catch (err) {
+    console.error('Errore caricando gli eventi:', err);
+  }
+}
+
+// Avvia il caricamento quando la pagina è pronta
+document.addEventListener('DOMContentLoaded', loadEvents);
 </script>
+
 
 
 </body>
