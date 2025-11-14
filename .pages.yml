@@ -46,7 +46,6 @@ collections:
       - name: "time"
         label: "Orario"
         type: "string"
-        required: false
 
       - name: "place"
         label: "Luogo"
