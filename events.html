@@ -501,91 +501,74 @@
   <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="https://kit.fontawesome.com/d23a960fcc.js" crossorigin="anonymous"></script>
-  <script>
-    async function loadEvents() {
-        const lang = localStorage.getItem('language') || 'en';
+<script>
+async function loadEvents() {
+  // Recupera tutti i file della cartella events
+  const response = await fetch('/events/');
+  const text = await response.text();
 
-        // Lista dei file (GitHub Pages permette l'auto-discovery tramite fetch della folder)
-        const response = await fetch('/events/');
-        const text = await response.text();
+  // Estrai i file .json o .md (PagesCMS può esportare in JSON)
+  const files = [...text.matchAll(/href="([^"]+\.(?:json|md))"/g)].map(m => m[1]);
 
-        // Estrarre i file .json con regex
-        const files = [...text.matchAll(/href="([^"]+\.json)"/g)].map(m => m[1]);
+  const events = [];
 
-        const events = [];
-
-        for (const file of files) {
-            try {
-                const res = await fetch(`/events/${file}`);
-                const data = await res.json();
-                events.push(data);
-            } catch (e) {
-                console.warn("Errore caricamento", file, e);
-            }
-        }
-
-        // Ordina per data crescente
-        events.sort((a, b) => new Date(a[lang].date) - new Date(b[lang].date));
-
-        const now = new Date();
-
-        const upcoming = events.filter(e => new Date(e[lang].date) >= now);
-        const past = events.filter(e => new Date(e[lang].date) < now);
-
-        renderEvents(upcoming, "#day-1");
-        renderEvents(past, "#day-2");
+  for (const file of files) {
+    try {
+      const res = await fetch(`/events/${file}`);
+      const data = await res.json(); // se PagesCMS esporta JSON
+      events.push(data);
+    } catch (err) {
+      console.warn('Errore caricamento evento', file, err);
     }
+  }
 
-    function renderEvents(list, containerSelector) {
-        const container = document.querySelector(containerSelector);
-        if (!container) return;
+  // Ordina per data
+  events.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
 
-        container.innerHTML = ""; // svuota
+  const now = new Date();
+  const upcoming = events.filter(e => new Date(e.pubDate) >= now);
+  const past = events.filter(e => new Date(e.pubDate) < now);
 
-        const lang = localStorage.getItem('language') || 'en';
+  renderEvents(upcoming, '#day-1');
+  renderEvents(past, '#day-2');
+}
 
-        list.forEach(ev => {
-            const html = `
-              <div class="row mb-2">
-                <div class="col-md-12">
-                  <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-                    <div class="col-auto d-none d-lg-block">
-                      <svg class="event-img" width="300" height="300">
-                        <image xlink:href="${ev.image}" height="300" />
-                      </svg>
-                    </div>
-                    <div class="col p-4 d-flex flex-column position-static">
-                      <strong class="d-inline-block mb-2 date-time">
-                        <a class="bi bi-calendar-date-fill"></a> ${ev[lang].date} &nbsp;&nbsp;&nbsp;
-                        <a class="bi bi-clock-fill"></a> ${ev[lang].time || ""}
-                      </strong>
+function renderEvents(list, containerSelector) {
+  const container = document.querySelector(containerSelector);
+  if (!container) return;
 
-                      <h3 class="mb-0">${ev[lang].title}</h3>
+  container.innerHTML = '';
 
-                      <div class="mb-1 place">
-                        <a class="bi bi-geo-alt-fill"></a>
-                        <a class="place-maps" href="${ev.maps}" target="_blank">${ev[lang].place}</a>
-                      </div>
-
-                      <p class="card-text mb-auto event-text" style="width: 90%;">
-                        ${ev[lang].description}
-                      </p>
-
-                      <div class="row-md">
-                        ${ev.tickets ? `<a href="${ev.tickets}" target="_blank" class="tickets">Info</a>` : ""}
-                        ${ev.video ? `<a href="${ev.video}" target="_blank" class="tickets">Video</a>` : ""}
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  list.forEach(ev => {
+    const html = `
+      <div class="row mb-2">
+        <div class="col-md-12">
+          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+            <div class="col-auto d-none d-lg-block">
+              <img src="${ev.heroImage}" height="300" class="event-img" />
+            </div>
+            <div class="col p-4 d-flex flex-column position-static">
+              <strong class="d-inline-block mb-2 date-time">
+                <i class="bi bi-calendar-date-fill"></i> ${ev.pubDate} &nbsp;&nbsp;
+                <i class="bi bi-clock-fill"></i> ${ev.time || ''}
+              </strong>
+              <h3 class="mb-0">${ev.title}</h3>
+              <div class="mb-1 place">
+                <i class="bi bi-geo-alt-fill"></i> 
+                ${ev.url ? `<a href="${ev.url}" target="_blank">${ev.place}</a>` : ev.place}
               </div>
-            `;
-            container.innerHTML += html;
-        });
-    }
+              <p class="card-text mb-auto event-text">${ev.description}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    `;
+    container.innerHTML += html;
+  });
+}
 
-    document.addEventListener("DOMContentLoaded", loadEvents);
-  </script>
+document.addEventListener('DOMContentLoaded', loadEvents);
+</script>
 
 
   <!-- Main JS File -->
