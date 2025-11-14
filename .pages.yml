@@ -1,28 +1,95 @@
-collections:
-  concerti:
-    label: "Eventi"
-    folder: "eventi"
-    create: true
-    fields:
-      title:
-        type: string
-        label: Titolo
-      date:
-        type: date
-        label: Data
-      time:
-        type: time
-        label: Time
-      luogo:
-        type: string
-        label: Luogo
-      image:
-        type: image
-        label: Immagine
-      body:
-        type: markdown
-        label: Descrizione
+# Pages CMS configuration
+site:
+  title: "Bottega Sonora CMS"
+  logo: "/assets/img/logo.png"
 
-media:
-  folder: "assets/eventi"
-  public: "/assets/eventi"
+collections:
+  - name: "events"
+    label: "Concerti"
+    path: "events"
+    type: "directory"
+    format: "json"
+    create: true
+    match: "**/*.json"
+
+    fields:
+      - name: "id"
+        label: "ID evento"
+        type: "string"
+        required: true
+
+      - name: "title_it"
+        label: "Titolo (IT)"
+        type: "string"
+        required: true
+
+      - name: "desc_it"
+        label: "Descrizione (IT)"
+        type: "text"
+        required: true
+
+      - name: "title_en"
+        label: "Titolo (EN)"
+        type: "string"
+        required: true
+
+      - name: "desc_en"
+        label: "Descrizione (EN)"
+        type: "text"
+        required: true
+
+      - name: "date"
+        label: "Data"
+        type: "date"
+        required: true
+
+      - name: "time"
+        label: "Orario"
+        type: "string"
+        required: false
+
+      - name: "place"
+        label: "Luogo"
+        type: "string"
+        required: true
+
+      - name: "maps_link"
+        label: "Google Maps Link"
+        type: "string"
+
+      - name: "ticket_link"
+        label: "Ticket/Info Link"
+        type: "string"
+
+      - name: "video_link"
+        label: "Video Link"
+        type: "string"
+
+      - name: "image"
+        label: "Immagine"
+        type: "image"
+        required: true
+
+    transform:
+      output: |
+        {
+          "id": "{{id}}",
+          "it": {
+            "title": "{{title_it}}",
+            "description": {{ desc_it | jsonify }},
+            "place": "{{place}}",
+            "date": "{{date}}",
+            "time": "{{time}}"
+          },
+          "en": {
+            "title": "{{title_en}}",
+            "description": {{ desc_en | jsonify }},
+            "place": "{{place}}",
+            "date": "{{date}}",
+            "time": "{{time}}"
+          },
+          "maps": "{{maps_link}}",
+          "tickets": "{{ticket_link}}",
+          "video": "{{video_link}}",
+          "image": "{{image}}"
+        }
