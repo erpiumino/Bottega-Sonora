@@ -502,50 +502,55 @@
   <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
   <script src="https://kit.fontawesome.com/d23a960fcc.js" crossorigin="anonymous"></script>
 <script>
-async function loadEvents() {
-  // Recupera tutti i file della cartella events
-  const response = await fetch('/events/');
-  const text = await response.text();
+async function loadCMS_Events() {
+  // Cartella dei file Markdown/JSON generati da PagesCMS
+  const cmsFolder = '/events/'; 
 
-  // Estrai i file .json o .md (PagesCMS può esportare in JSON)
-  const files = [...text.matchAll(/href="([^"]+\.(?:json|md))"/g)].map(m => m[1]);
+  try {
+    const response = await fetch(cmsFolder);
+    const text = await response.text();
 
-  const events = [];
+    // Estrai file .json o .md
+    const files = [...text.matchAll(/href="([^"]+\.(?:json|md))"/g)].map(m => m[1]);
 
-  for (const file of files) {
-    try {
-      const res = await fetch(`/events/${file}`);
-      const data = await res.json(); // se PagesCMS esporta JSON
-      events.push(data);
-    } catch (err) {
-      console.warn('Errore caricamento evento', file, err);
+    const events = [];
+
+    for (const file of files) {
+      try {
+        const res = await fetch(`${cmsFolder}${file}`);
+        const data = await res.json(); // PagesCMS esporta JSON
+        events.push(data);
+      } catch (err) {
+        console.warn('Errore caricamento evento CMS', file, err);
+      }
     }
+
+    // Ordina per data
+    events.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
+
+    const now = new Date();
+    const upcoming = events.filter(e => new Date(e.pubDate) >= now);
+    const past = events.filter(e => new Date(e.pubDate) < now);
+
+    appendEvents(upcoming, '#day-1');
+    appendEvents(past, '#day-2');
+
+  } catch (err) {
+    console.error('Errore caricamento cartella CMS:', err);
   }
-
-  // Ordina per data
-  events.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
-
-  const now = new Date();
-  const upcoming = events.filter(e => new Date(e.pubDate) >= now);
-  const past = events.filter(e => new Date(e.pubDate) < now);
-
-  renderEvents(upcoming, '#day-1');
-  renderEvents(past, '#day-2');
 }
 
-function renderEvents(list, containerSelector) {
+function appendEvents(list, containerSelector) {
   const container = document.querySelector(containerSelector);
   if (!container) return;
 
-  container.innerHTML = '';
-
   list.forEach(ev => {
     const html = `
-      <div class="row mb-2">
+      <div class="row mb-2"><!--Inizio Evento-->
         <div class="col-md-12">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col-auto d-none d-lg-block">
-              <img src="${ev.heroImage}" height="300" class="event-img" />
+              <img src="${ev.heroImage}" height="300" class="event-img"/>
             </div>
             <div class="col p-4 d-flex flex-column position-static">
               <strong class="d-inline-block mb-2 date-time">
@@ -561,14 +566,15 @@ function renderEvents(list, containerSelector) {
             </div>
           </div>
         </div>
-      </div>
+      </div><!--Fine Evento-->
     `;
-    container.innerHTML += html;
+    container.innerHTML += html; // aggiunge senza cancellare gli eventi esistenti
   });
 }
 
-document.addEventListener('DOMContentLoaded', loadEvents);
+document.addEventListener('DOMContentLoaded', loadCMS_Events);
 </script>
+
 
 
   <!-- Main JS File -->
