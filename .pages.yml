@@ -1,5 +1,4 @@
----
-# Pages CMS configuration
+version: 1
 site:
   title: "Bottega Sonora CMS"
   logo: "/assets/img/logo.png"
