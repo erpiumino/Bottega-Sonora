@@ -1,70 +1,54 @@
 content:
-  - name: events
+  - name: "events"
     label: "Concerti"
-    path: "events"
-    type: collection
-    format: "json"
-    create: true
-    match: "**/*.json"
-
+    folder: "events"
+    media: 
+      - name: "image"
+        label: "Immagine Evento"
+        type: "image"
+        required: true
     fields:
-      - name: id
-        label: "ID evento"
-        type: string
-        required: true
-
-      - name: title
+      - name: "title"
         label: "Titolo"
-        type: string
+        type: "string"
         required: true
 
-      - name: description
+      - name: "description"
         label: "Descrizione"
-        type: text
+        type: "text"
         required: true
 
-      - name: date
+      - name: "date"
         label: "Data"
-        type: date
+        type: "date"
         required: true
 
-      - name: time
+      - name: "time"
         label: "Orario"
-        type: string
+        type: "string"
 
-      - name: place
+      - name: "place"
         label: "Luogo"
-        type: string
+        type: "string"
         required: true
 
-      - name: maps_link
+      - name: "maps_link"
         label: "Google Maps Link"
-        type: string
+        type: "string"
 
-      - name: ticket_link
-        label: "Ticket/Info Link"
-        type: string
+      - name: "ticket_link"
+        label: "Ticket / Info Link"
+        type: "string"
 
-      - name: video_link
+      - name: "video_link"
         label: "Video Link"
-        type: string
+        type: "string"
 
-      - name: image
-        label: "Immagine"
-        type: image
+      - name: "status"
+        label: "Stato Evento"
+        type: "select"
+        options:
+          - "upcoming"
+          - "past"
         required: true
-
-    transform:
-      output: |
-        {
-          "id": "{{id}}",
-          "title": "{{title}}",
-          "description": {{ description | jsonify }},
-          "place": "{{place}}",
-          "date": "{{date}}",
-          "time": "{{time}}",
-          "maps": "{{maps_link}}",
-          "tickets": "{{ticket_link}}",
-          "video": "{{video_link}}",
-          "image": "{{image}}"
-        }
+        help: "Seleziona se l'evento è futuro (upcoming) o passato (past)"
