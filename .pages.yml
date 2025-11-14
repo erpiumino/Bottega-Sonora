@@ -3,9 +3,6 @@
 site:
   title: "Bottega Sonora CMS"
   logo: "/assets/img/logo.png"
-site:
-  title: "Bottega Sonora CMS"
-  logo: "/assets/img/logo.png"
 
 collections:
   - name: "events"
