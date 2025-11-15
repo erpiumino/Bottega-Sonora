@@ -21,7 +21,7 @@ content:
         options:
           format: dd/MM/yyyy
 
-      - name: time
+      - name: orario
         label: Orario
         type: string
 
