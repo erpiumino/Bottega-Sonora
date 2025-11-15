@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
-const matter = require('gray-matter'); // serve per leggere i front matter YAML
+const matter = require('gray-matter');
 
-const eventsDir = path.join(__dirname, 'events'); // la cartella dove PagesCMS salva i .md
+const eventsDir = path.join(__dirname, 'events');
 const outputFile = path.join(__dirname, 'events.json');
 
 const events = [];
@@ -12,21 +12,28 @@ fs.readdirSync(eventsDir).forEach(file => {
   if (file.endsWith('.md')) {
     const filePath = path.join(eventsDir, file);
     const content = fs.readFileSync(filePath, 'utf8');
-    const { data } = matter(content); // estrae i metadati YAML
+    const { data } = matter(content); // frontmatter
 
     events.push({
       title: data.title || '',
       description: data.description || '',
       pubDate: data.pubDate || '',
-      time: data.time || '',
+      time: String(data.time || '').padStart(5, '0'), // sicurezza HH:MM
       place: data.place || '',
-      heroImage: data.heroImage || ''
+      heroImage: data.heroImage || '',
+      info: data.info || '',               // NUOVO
+      mapsUrl: data.mapsUrl || '',         // NUOVO
+      mapsAddress: data.mapsAddress || ''  // NUOVO
     });
   }
 });
 
-// Ordina per data crescente
-events.sort((a, b) => new Date(a.pubDate + 'T' + a.time) - new Date(b.pubDate + 'T' + b.time));
+// Ordina correttamente per data+ora
+events.sort((a, b) => {
+  const dateA = new Date(`${a.pubDate}T${a.time}`);
+  const dateB = new Date(`${b.pubDate}T${b.time}`);
+  return dateA - dateB;
+});
 
 // Scrive il JSON
 fs.writeFileSync(outputFile, JSON.stringify(events, null, 2));
