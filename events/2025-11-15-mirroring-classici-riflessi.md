@@ -15,5 +15,6 @@ description: >-
 pubDate: 20/11/2025
 place: Fondazione La Rocca (PE)
 url: https://maps.app.goo.gl/ALy68fZteMukfXDU9
+heroImage: /assets/eventi/Mirroring. Post IG.png
 tickets: https://identitamusicali.it/mirroring-classici-riflessi/
 ---
