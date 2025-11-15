@@ -507,87 +507,60 @@
   <script src="assets/js/content.js" defer></script>
   <script>
   fetch('events.json')
-    .then(r => r.json())
-    .then(data => {
-      window.eventsJSON = data;
-      initEvents();
-    })
-    .catch(err => console.error("ERRORE CARICAMENTO JSON:", err));
-
-  function initEvents() {
-    const events = window.eventsJSON || [];
-
-    function parseDate(pubDate) {
-      const [day, month, year] = pubDate.split('/');
-      return new Date(`${year}-${month}-${day}`);
-    }
-
-    function createEventHTML(event) {
-      const container = document.createElement('div');
-      container.className = "row mb-2";
-
-      container.innerHTML = `
-        <div class="col-md-12">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            
-            <div class="col-auto d-none d-lg-block">
-              <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
-            </div>
-
-            <div class="col p-4 d-flex flex-column position-static">
-
-              <strong class="d-inline-block mb-2 date-time">
-                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate}
-              </strong>
-
-              <h3 class="mb-0">${event.title}</h3>
-
-              <div class="mb-1 place">
-                <i class="bi bi-geo-alt-fill"></i>
-                ${
-                  event.url 
-                    ? `<a class="place-maps" href="${event.url}" target="_blank">${event.place}</a>`
-                    : `${event.place}`
-                }
+    .then(res => res.json())
+    .then(events => {
+      const upcomingContainer = document.querySelector('#day-1');
+      const pastContainer = document.querySelector('#day-2');
+      const now = new Date();
+  
+      function createEventHTML(event) {
+        const container = document.createElement('div');
+        container.className = "row mb-2";
+  
+        container.innerHTML = `
+          <div class="col-md-12">
+            <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col-auto d-none d-lg-block">
+                <img src="${event.heroImage}" class="event-img" style="width:300px; height:300px; object-fit:cover;" />
               </div>
-
-              <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
-
-              <div class="row-md">
-                ${
-                  event.info 
-                    ? `<a href="${event.info}" target="_blank" class="tickets">Info</a>`
-                    : ''
-                }
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 date-time">
+                  <i class="bi bi-calendar-date-fill"></i> ${new Date(event.pubDate).toLocaleDateString('it-IT')} &nbsp; &nbsp; &nbsp;
+                  <i class="bi bi-clock-fill"></i> ${new Date(event.pubDate).toLocaleTimeString('it-IT', {hour: '2-digit', minute:'2-digit'})}
+                </strong>
+                <h3 class="mb-0">${event.title}</h3>
+                <div class="mb-1 place">
+                  <i class="bi bi-geo-alt-fill"></i> 
+                  ${event.url ? `<a class="place-maps" href="${event.url}" target="_blank">${event.place}</a>` : event.place}
+                </div>
+                <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
+                <div class="row-md">
+                  ${event.tickets ? `<a href="${event.tickets}" target="_blank" class="tickets">Info</a>` : ''}
+                </div>
               </div>
-
             </div>
           </div>
-        </div>
-      `;
-      return container;
-    }
-
-    const upcomingContainer = document.querySelector('#day-1');
-    const pastContainer = document.querySelector('#day-2');
-
-    const now = new Date();
-
-    // ORDINE: dal più recente al meno recente
-    events.sort((a, b) => parseDate(b.pubDate) - parseDate(a.pubDate));
-
-    events.forEach(event => {
-      const eventDate = parseDate(event.pubDate);
-      const el = createEventHTML(event);
-
-      if (eventDate >= now) {
-        upcomingContainer.prepend(el);
-      } else {
-        pastContainer.prepend(el);
+        `;
+        return container;
       }
-    });
-  }
+  
+      // Ordina per data crescente
+      events.sort((a, b) => new Date(a.pubDate) - new Date(b.pubDate));
+  
+      events.forEach(event => {
+        const eventDate = new Date(event.pubDate);
+        const el = createEventHTML(event);
+  
+        if (eventDate >= now) {
+          upcomingContainer.prepend(el); // Eventi futuri in cima
+        } else {
+          pastContainer.prepend(el);     // Eventi passati in cima
+        }
+      });
+    })
+    .catch(err => console.error("Errore caricamento JSON eventi:", err));
   </script>
+
 
 </body>
 
