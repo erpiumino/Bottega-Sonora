@@ -12,7 +12,7 @@ description_en: This program brings together three twentieth-century
   Completing the program is Nel labirinto, a new commission by Diego Santamaria,
   in which the instrumental dialogue unfolds as a journey of wandering and
   return, suspended between repetition, discovery, and emergence into the light.
-pubDate: 06/12/2025 13:18
+pubDate: 06/12/2025 18:30
 place: Trevignano Romano, Sala Consiliare
 url: https://maps.app.goo.gl/ugyMoZsGxmK6qd3E6
 heroImage: /assets/eventi/images.jpg
