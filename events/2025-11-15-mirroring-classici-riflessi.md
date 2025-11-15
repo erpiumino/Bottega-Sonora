@@ -1,14 +1,12 @@
 ---
 title: Mirroring - Classici Riflessi
-description: >-
-  Secondo e ultimo appuntamento della rassegna di concerti di musica
-  contemporanea di Identità Musicali: Mirroring - Classici riflessi.
-
-  E' un gioco di specchi, pensato per rendere emozionante l'incontro con questa
-  musica: uno spazio per l'arte contemporanea, dove il suono si sente fin sulla
-  pelle; un'immagine fotografica che accompagna il programma, opera d'arte che
-  si affianca all'esecuzione; un programma musicale che specchia tre
-  composizioni contemporanee in un grande classico del repertorio.
+description: "Secondo e ultimo appuntamento della rassegna di Identità Musicali:
+  Mirroring - Classici riflessi. Un gioco di specchi tra musica contemporanea e
+  classica, con arte visiva che accompagna l'esecuzione e un’esperienza sonora
+  coinvolgente."
+description_en: "Second and final event of the Identità Musicali series:
+  Mirroring – Reflected Classics. A mirror game between contemporary and
+  classical music, accompanied by visual art and an immersive sonic experience."
 pubDate: 20/11/2025 18:30
 place: Fondazione La Rocca (PE)
 url: https://maps.app.goo.gl/ALy68fZteMukfXDU9
