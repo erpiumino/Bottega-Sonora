@@ -528,9 +528,9 @@
     function createEventHTML(event) {
       const container = document.createElement('div');
       container.className = "row mb-2";
-
+  
       const [datePart, timePart] = event.pubDate.split(' ');
-
+  
       container.innerHTML = `
         <div class="col-md-12">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -548,9 +548,11 @@
                 ${event.url ? `<a class="place-maps" href="${event.url}" target="_blank">${event.place}</a>` 
                             : `<span>${event.place}</span>`}
               </div>
-                <p class="card-text mb-auto event-text" style="width: 90%;" data-event-id="${event.id}">
-                  ${(localStorage.getItem('language') || 'en') === 'en' ? event.description_en || event.description : event.description}
-                </p>
+              <p class="card-text mb-auto event-text" style="width: 90%;"
+                 data-en="${event.description_en || event.description}"
+                 data-it="${event.description}">
+                ${ (localStorage.getItem('language') || 'en') === 'en' ? event.description_en || event.description : event.description }
+              </p>
               <div class="row-md">
                 ${event.tickets ? `<a href="${event.tickets}" target="_blank" class="tickets">Info</a>` : ''}
               </div>
@@ -560,7 +562,6 @@
       `;
       return container;
     }
-
   
     const upcomingContainer = document.querySelector('#day-1');
     const pastContainer = document.querySelector('#day-2');
@@ -583,21 +584,25 @@
       }
     });
   }
-    document.querySelectorAll('.language-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const language = btn.id.includes('en') ? 'en' : 'it';
+  
+  // Funzione per aggiornare tutti gli eventi alla lingua selezionata
+  function updateEventsLanguage(language) {
+    const eventTexts = document.querySelectorAll('.event-text');
+    eventTexts.forEach(p => {
+      p.textContent = p.getAttribute(`data-${language}`);
+    });
+  }
+  
+  // Listener per i pulsanti lingua
+  document.querySelectorAll('.language-btn').forEach(button => {
+    button.addEventListener('click', () => {
+      const language = button.id.includes('en') ? 'en' : 'it';
       localStorage.setItem('language', language);
-
-      // Aggiorna tutti i testi degli eventi
-      window.eventsJSON.forEach((event, index) => {
-        const p = document.querySelector(`p[data-event-id="${event.id}"]`);
-        if (p) {
-          p.textContent = language === 'en' ? (event.description_en || event.description) : event.description;
-        }
-      });
+      updateEventsLanguage(language); // aggiorna tutti gli eventi
     });
   });
   </script>
+
 
 </body>
 
