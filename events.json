@@ -18,5 +18,15 @@
     "url": "https://maps.app.goo.gl/ALy68fZteMukfXDU9",
     "heroImage": "/assets/eventi/Mirroring. Post IG.png",
     "tickets": "https://identitamusicali.it/mirroring-classici-riflessi/"
+  },
+  {
+    "title": "Musica e Resistenza",
+    "description": "Conferenza-Concerto sul tema della resistenza.",
+    "description_en": "Conference-Concert on the topic of resistance.",
+    "pubDate": "13/12/2025 20:30",
+    "place": "Velletri",
+    "url": "",
+    "heroImage": "/assets/eventi/tre sogni 3.png",
+    "tickets": ""
   }
 ]
