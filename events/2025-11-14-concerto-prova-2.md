@@ -12,15 +12,6 @@ description: >-
 
   Così vogliamo rispecchiare la nostra idee di musica contemporanea: viva,
   inclusiva, coinvolgente, eseguita dai nostri musicisti più entusiasti.
-
-
-  Luca Giuliani (cl), Paolo Capanna (vla) e Jacopo Petrucci (pno) eseguiranno
-  alcuni brani composti fra il 2024 e il 2025, selezionati dalla nostra call
-  "Prime Esecuzioni", che ha toccato tutto il mondo: si tratta dei tre vincitori
-  del Premio Baccano. Le nuove composizioni dovranno guardarsi allo specchio con
-  il celebre trio dei birilli di W.A. Mozart svelandoci connessioni inaspettate.
-
-  Ingresso libero, prenotazione obbligatoria
 pubDate: 20/11/2025
 time: 18:30
 place: Fondazione La Rocca (PE)
