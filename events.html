@@ -528,7 +528,9 @@
     function createEventHTML(event) {
       const container = document.createElement('div');
       container.className = "row mb-2";
-  
+
+      const [datePart, timePart] = event.pubDate.split(' ');
+
       container.innerHTML = `
         <div class="col-md-12">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -537,8 +539,8 @@
             </div>
             <div class="col p-4 d-flex flex-column position-static">
               <strong class="d-inline-block mb-2 date-time">
-                <i class="bi bi-calendar-date-fill"></i> ${event.pubDate} &nbsp; &nbsp; &nbsp;
-                <i class="bi bi-clock-fill"></i> ${event.pubDate.split(' ')[1] || ''}
+                <i class="bi bi-calendar-date-fill"></i> ${datePart} &nbsp; &nbsp; &nbsp;
+                <i class="bi bi-clock-fill"></i> ${timePart || ''}
               </strong>
               <h3 class="mb-0">${event.title}</h3>
               <div class="mb-1 place">
@@ -546,7 +548,9 @@
                 ${event.url ? `<a class="place-maps" href="${event.url}" target="_blank">${event.place}</a>` 
                             : `<span>${event.place}</span>`}
               </div>
-              <p class="card-text mb-auto event-text" style="width: 90%;">${event.description}</p>
+              <p class="card-text mb-auto event-text" style="width: 90%;">
+                ${ (localStorage.getItem('language') || 'en') === 'en' ? event.description_en || event.description : event.description }
+              </p>
               <div class="row-md">
                 ${event.tickets ? `<a href="${event.tickets}" target="_blank" class="tickets">Info</a>` : ''}
               </div>
@@ -556,6 +560,7 @@
       `;
       return container;
     }
+
   
     const upcomingContainer = document.querySelector('#day-1');
     const pastContainer = document.querySelector('#day-2');

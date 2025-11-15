@@ -17,6 +17,7 @@ fs.readdirSync(eventsDir).forEach(file => {
     events.push({
       title: data.title || '',
       description: data.description || '',
+      description_en: data.description_en || '',  // nuovo campo per inglese
       pubDate: data.pubDate || '',
       place: data.place || '',
       url: data.url || '',

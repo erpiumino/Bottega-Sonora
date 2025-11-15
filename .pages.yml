@@ -15,6 +15,10 @@ content:
         label: Descrizione
         type: text
 
+      - name: description_en
+        label: Description (EN)
+        type: text
+
       - name: pubDate
         label: Data
         type: date
