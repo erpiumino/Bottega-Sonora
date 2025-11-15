@@ -19,7 +19,7 @@ const events = files.map(filename => {
   const { data } = matter(raw);
 
   // Assicuriamoci di mantenere time come stringa esattamente com'è
-  const timeStr = data.time === undefined || data.time === null ? '' : String(data.time).trim();
+  const timeStr = data.orario === undefined || data.orario === null ? '' : String(data.orario).trim();
 
   // Manteniamo pubDate nel formato DD/MM/YYYY come l'hai definito
   const pubDate = data.pubDate || '';
@@ -39,7 +39,7 @@ const events = files.map(filename => {
     title: (data.title || '').toString(),
     description: (data.description || '').toString(),
     pubDate: pubDate,
-    time: timeStr,
+    orario: timeStr,
     place: (data.place || '').toString(),
     heroImage: (data.heroImage || '').toString(),
     url: (data.url || '').toString(),       // Google Maps link dal .yml
