@@ -19,11 +19,8 @@ content:
         label: Data
         type: date
         options:
-          format: dd/MM/yyyy
-
-      - name: orario
-        label: Orario
-        type: string
+          time: true
+          format: "dd/MM/yyyy HH:mm"
 
       - name: place
         label: Luogo
