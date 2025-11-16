@@ -38,8 +38,9 @@
   <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
 
 
-  <!-- Files for the table sorting -->
+  <!-- Files for the table sorting
   <script src="dist/sortable-tables.min.js" type="text/javascript"></script>
+  -->
 
   <!-- Main CSS File -->
   <link href="assets/css/main.css" rel="stylesheet">
@@ -228,406 +229,19 @@
           <p id="repertoire-rotate"> <a class="bi bi-phone-landscape-fill"></a>Rotate your phone for a better view</p>
         </div>
 
-        <table class="table table-striped table-bordered dataTable" id="sortTable" style="min-width: 600px!important;">
+        <table class="table table-striped table-bordered" id="sortTable" style="min-width: 600px!important;">
           <thead>
             <tr>
-              <th class="" id="repertoire-name" >Name</th>
-              <th class="" id="repertoire-composer" >Composer</th>
-              <td class="" id="repertoire-organic" style="font-weight: 500;">Organic</th>
-              <th class="numeric-sort" id="repertoire-year" >Year</th>
-              <td class="" id="repertoire-notes" style="font-weight: 500;">Notes</th>
+              <th id="repertoire-name">Name</th>
+              <th id="repertoire-composer">Composer</th>
+              <th id="repertoire-organic">Organic</th>
+              <th id="repertoire-year">Year</th>
+              <th id="repertoire-notes">Notes</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>
-              <td><a>Dialogo Angelico</a></td>
-              <td>Goffredo Petrassi</td>
-              <td class="translatable" data-key="two-flutes">Two Flutes</td>
-              <td>1951</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Sonatine</a></td>
-              <td>Andrè Jolivet</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="clarinet">Clarinet</i></td>
-              <td>1961</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Sonatina</a></td>
-              <td>Matteo Del Maso</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="clarinet">Clarinet</i></td>
-              <td>1997</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a class="underline" href="https://soundcloud.com/gabriele-boccio-282770752/trasmystique-2020-2021-per-vibrafono-e-live-electronics" target="_blank">Trasmistique</a></td>
-              <td>Gabriele Boccio</td>
-              <td><i class="translatable" data-key="vibraphone">Vibraphone</i>, <i class="translatable" data-key="eletronics">Eletronics</i></td>
-              <td>2021</td>
-              <td id="notes-trasmistique">Dedicated to Alessandro Gizzi. World premiere 26/03/2024</td>
-            </tr>
-            <tr>
-              <td><a class="underline" href="https://soundcloud.com/federico-santori/telegraph-i" target="_blank">Telegraph 1, Circular calls</a></td>
-              <td>Federico Santori</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="piano">Piano</i>(<i class="translatable" data-key="with-ebow">With E-Bow</i>)</td>
-              <td>2022</td>
-              <td id="notes-telegraph">Dedicated to Angelo Mordente. World premiere 11/06/2022</td>
-            </tr>
-            <tr>
-              <td><a>Shiver</a></td>
-              <td>Caterina Calderoni</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="piano">Piano</i></td>
-              <td>2006</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a class="underline" href="https://soundcloud.com/bottega-sonora-ensemble/note-su-tela" target="_blank">Note su Tela</a></td>
-              <td>Alessandra Ravera</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="guitar">Guitar</i></td>
-              <td>2010</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a class="underline" href="https://soundcloud.com/bottega-sonora-ensemble/note-su-tela" target="_blank">Tre Sogni</a></td>
-              <td>Fabio Massimo Capogrosso</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="bass-clarinet">Bass Clarinet</i>, <i class="translatable" data-key="violin">Violin</i></td>
-              <td>2019</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Notte di Luna</a></td>
-              <td>Fabio Massimo Capogrosso</td>
-              <td><i class="translatable" data-key="flute">Flute</i></td>
-              <td>2017</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Sequenza I</a></td>
-              <td>Luciano Berio</td>
-              <td><i class="translatable" data-key="flute">Flute</i></td>
-              <td>1958</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Density (21.5)</a></td>
-              <td>Edgar Varese</td>
-              <td><i class="translatable" data-key="flute">Flute</i></td>
-              <td>1936</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Mouvement</a></td>
-              <td>Bettina Skrzypczak</td>
-              <td><i class="translatable" data-key="flute">Flute</i></td>
-              <td>1999</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>The Panic Flirt</a></td>
-              <td>Alexandre Delgrado</td>
-              <td><i class="translatable" data-key="flute">Flute</i></td>
-              <td>1992</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Telegraph 3 "Bubbledance"</a></td>
-              <td>Federico Santori</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, Viola, <i class="translatable" data-key="harp">Harp</i></td>
-              <td>2024</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Crepuscolo</a></td>
-              <td>Paolo Capanna</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, Viola, <i class="translatable" data-key="harp">Harp</i></td>
-              <td>2024</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a class="underline" href="https://www.youtube.com/watch?v=QRe_-5xe2OE&t=12s" target="_blank">Folk Songs</a></td>
-              <td>Luciano Berio</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, 
-                  <i>Mezzosoprano</i>,
-                  <i class="translatable" data-key="clarinet">Clarinet</i>,
-                  <i class="translatable" data-key="harp">Harp</i>,
-                  <i>Viola</i>,
-                  <i class="translatable" data-key="cello">Cello</i>,
-                  <i class="translatable" data-key="percussions">Percussions</i>
-              </td>
-              <td>1964</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Tierkreis</a></td>
-              <td>Karlheinz Stockhausen</td>
-              <td><i class="translatable" data-key="open-organic">Open Organic</i></td>
-              <td>1975</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>In C</a></td>
-              <td>Terry Riley</td>
-              <td><i class="translatable" data-key="open-organic">Open Organic</i></td>
-              <td>1964</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Trama</a></td>
-              <td>Giorgio Battistelli</td>
-              <td><i class="translatable" data-key="bass-drum">Bass Drum</i>,
-                  <i>2 Bongos</i>,
-                  <i>Djembe</i>,
-                  <i>Sabar</i>,
-                  <i>Tal Gong (Bb)</i>,
-                  <i>Tam-tam</i>
-              </td>
-              <td>2001</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Asventuras</a></td>
-              <td>Alexej Gerassimez</td>
-              <td><i class="translatable" data-key="drum">Drum</i></td>
-              <td>2011</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Libertango</a></td>
-              <td>Eric Sammut</td>
-              <td><i class="translatable" data-key="bass-marimba">Bass Marimba</i></td>
-              <td>2002</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Frogs</a></td>
-              <td>Kelko Abe</td>
-              <td><i class="translatable" data-key="marimba">Marimba</i></td>
-              <td>1958</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Blues For Gilbert</a></td>
-              <td>Mark Glentworth</td>
-              <td><i class="translatable" data-key="vibraphone">Vibraphone</i></td>
-              <td>2006</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Stop Speaking</a></td>
-              <td>Andy Akiho</td>
-              <td><i class="translatable" data-key="drum">Drum</i>,
-                  <i class="translatable" data-key="tape">Tape</i>,
-                  <i>Video</i>
-              </td>
-              <td>2011</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Midnight Star</a></td>
-              <td>David Friedman</td>
-              <td><i class="translatable" data-key="vibraphone">Vibraphone</i></td>
-              <td>1999</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Comme un opera fabuleux</a></td>
-              <td>Giorgio Battistelli</td>
-              <td><i>Marimba</i>,
-                  5 <i class="translatable" data-key="cymbals">Cymbals</i>,
-                  <i>5 Woodblock</i>,
-                  <i>Guiro</i>,
-                  <i class="translatable" data-key="cowbell">Cowbell</i>,
-                  <i>Tom</i>
-              </td>
-              <td>1976</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>March Cadenza</a></td>
-              <td>G. Mortensen</td>
-              <td><i class="translatable" data-key="drum">Drum</i></td>
-              <td>1993</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Improvisation I</a></td>
-              <td>Ryo Noda</td>
-              <td><i class="translatable" data-key="saxophone">Saxophone</i></td>
-              <td>1972</td>
-              <td></td>
-            </tr>
-              <td><a>Sequenza IXb</a></td>
-              <td>Luciano Berio</td>
-              <td><i class="translatable" data-key="saxophone">Saxophone</i></td>
-              <td>1980</td>
-              <td></td>
-            </tr>
-              <td><a>Sonate</a></td>
-              <td>Edison Denisov</td>
-              <td><i class="translatable" data-key="saxophone">Saxophone</i></td>
-              <td>1970</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a href="https://www.youtube.com/watch?v=w3pqig4pjAY" target="_blank" class="underline">Capricho Mediterráneo</a></td>
-              <td>Mariangeles Sanchez Benimeli</td>
-              <td class="translatable" data-key="alto-saxophone-pedal-harp">Alto Saxophone, Pedal Harp</td>
-              <td>2001</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a href="https://soundcloud.com/user-552235655/liminarities/s-J9zFauqKDm1?si=ace41505af6b446d8d1195cfcecf0d08&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" target="_blank" class="underline">Liminarities</a></td>
-              <td>Emanuele De Gasperis</td>
-              <td class="translatable" data-key="soprano-saxophone-mouthpiece-tenor-saxophone-pedal-harp">Soprano Saxophone (without mouthpiece), Tenor Saxophone, Pedal Harp</td>
-              <td>2024</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Waiting (always) Upon a Fragile Instant</a></td>
-              <td>Everette Minchew</td>
-              <td class="translatable" data-key="baritone-saxophone-pedal-harp">Baritone Saxophone, Pedal Harp</td>
-              <td>2017</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Seaodie III</a></td>
-              <td>François Rossé</td>
-              <td class="translatable" data-key="alto-saxophone-pedal-harp">Alto Saxophone, Pedal Harp</td>
-              <td>1985</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Mare Tranquillitatis</a></td>
-              <td>Federico Santori</td>
-              <td><i class="translatable" data-key="piano">Piano</i>, <i class="translatable" data-key="cello">Cello</i></td>
-              <td>2019</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Studi per pianoforte</a></td>
-              <td>György Ligeti</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>1985-2001</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Musica Ricercata</a></td>
-              <td>György Ligeti</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>1951-1953</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Mysteries of the Macabre</a></td>
-              <td>György Ligeti</td>
-              <td><i class="translatable" data-key="piano">Piano</i>, <i class="translatable" data-key="soprano">Soprano</i></td>
-              <td>1991</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Studi per pianoforte</a></td>
-              <td>Philip Glass</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>1991/2012</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Metamorfosi Ricercata</a></td>
-              <td>Pasquale Punzo</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>2023</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Da dove</a></td>
-              <td>Pasquale Punzo</td>
-              <td><i class="translatable" data-key="piano">Piano</i>, <i class="translatable" data-key="eletronics">Electronics</i></td>
-              <td>2022</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Petra</a></td>
-              <td>Daniele Scia</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>2023</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Lux in Petra</a></td>
-              <td>Daniele Scia</td>
-              <td><i class="translatable" data-key="piano">Piano</i>, <i class="translatable" data-key="eletronics">Electronics</i></td>
-              <td>2023</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Doctor Faustus Chapter XXV</a></td>
-              <td>Fabio Massimo Capogrosso</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>2016</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Entr'ouvert</a></td>
-              <td>Gianluca Lorusso</td>
-              <td><i class="translatable" data-key="piano">Piano</i></td>
-              <td>2017</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Life</a></td>
-              <td>Andrea Ravera</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="cello">Cello</i>, <i class="translatable" data-key="piano">Piano</i></td>
-              <td>2014</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Shiver</a></td>
-              <td>Claudio Calderoni</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="piano">Piano</i></td>
-              <td>2006</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Trittico</a></td>
-              <td>Jacopo Petrucci</td>
-              <td><i class="translatable" data-key="piano (4 hands)">Piano (4 hands)</i></td>
-              <td>2021</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Forcephasia</a></td>
-              <td>Jacopo Petrucci</td>
-              <td><i class="translatable" data-key="clarinet">Clarinet</i></td>
-              <td>2023</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Surrounded</a></td>
-              <td>Jacopo Petrucci</td>
-              <td><i class="translatable" data-key="flute">Flute</i>, <i class="translatable" data-key="clarinet">Clarinet</i>, <i class="translatable" data-key="violin">Violin</i> (2), <i class="translatable" data-key="viola">Viola</i>, <i class="translatable" data-key="cello">Cello</i></td>
-              <td>2023</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Parenthesis</a></td>
-              <td>Jacopo Petrucci</td>
-              <td><i class="translatable" data-key="string-orchestra">String Orchestra</i></td>
-              <td>2023</td>
-              <td></td>
-            </tr>
-            <tr>
-              <td><a>Complementary Loops</a></td>
-              <td>Jacopo Petrucci</td>
-              <td><i class="translatable" data-key="piano">Piano</i>, <i class="translatable" data-key="eletronics">Electronics</i></td>
-              <td>2024</td>
-              <td></td>
-            </tr>
-                        
-            
-            
-          </tbody>
+          <tbody id="repertoire-body"></tbody>
         </table>
+
       </div>
 
 
@@ -731,52 +345,81 @@
   <!-- Main JS File -->
   <script src="assets/js/content.js" defer></script>
   <script src="assets/js/main.js"></script>
-  <script>
-  fetch('repertoire.json')
-    .then(r => r.json())
-    .then(data => {
-      window.repertoireJSON = data;
-      initRepertoire();
-    })
-    .catch(err => console.error("ERRORE CARICAMENTO JSON:", err));
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    if (!window.location.pathname.endsWith("repertoire.html")) return;
 
-  function initRepertoire() {
-    const rep = window.repertoireJSON || [];
-    const tbody = document.querySelector('#sortTable tbody');
-    tbody.innerHTML = '';
+    const tableBody = document.querySelector("#sortTable tbody");
 
-    const lang = localStorage.getItem('language') || 'en';
+    // 1. Carico JSON
+    const repertoire = await fetch("repertoire.json").then(r => r.json());
 
-    rep.forEach(item => {
-      let row = document.createElement('tr');
+    // 2. Funzione per creare righe della tabella con attributi per la lingua
+    function createRow(entry) {
+        const lang = localStorage.getItem('language') || 'en';
+        const titleHTML = entry.link
+            ? `<a href="${entry.link}" class="title-text underline">${entry.title}</a>`
+            : `<span class="title-text">${entry.title}</span>`;
 
-      // Titolo con link opzionale
-      let titleHTML = item.link
-        ? `<a class="underline" href="${item.link}" target="_blank">${item.title}</a>`
-        : `<a>${item.title}</a>`;
+        return `
+            <tr>
+                <td class="title-cell title-text" data-en="${entry.title}" data-it="${entry.title}">${titleHTML}</td>
+                <td class="composer-cell" data-en="${entry.composer}" data-it="${entry.composer}">${entry.composer}</td>
+                <td class="organic-cell" data-en="${entry.organic_en}" data-it="${entry.organic_it}">${lang === 'it' ? entry.organic_it : entry.organic_en}</td>
+                <td class="year-cell" data-en="${entry.year}" data-it="${entry.year}">${entry.year}</td>
+                <td class="notes-cell" data-en="${entry.notes_en}" data-it="${entry.notes_it}">${lang === 'it' ? entry.notes_it : entry.notes_en}</td>
+            </tr>
+        `;
+    }
 
-      // Organic multilingua
-      let organic = lang === 'en'
-        ? item.organic_en || item.organic_it
-        : item.organic_it;
+    // 3. Popola la tabella
+    tableBody.innerHTML = repertoire.map(createRow).join("");
 
-      // Notes multilingua
-      let notes = lang === 'en'
-        ? item.notes_en || item.notes_it
-        : item.notes_it;
-
-      row.innerHTML = `
-        <td>${titleHTML}</td>
-        <td>${item.composer}</td>
-        <td>${organic}</td>
-        <td>${item.year}</td>
-        <td>${notes}</td>
-      `;
-
-      tbody.appendChild(row);
+    // 4. Inizializza DataTable
+    const table = $('#sortTable').DataTable({
+        language: window.currentTexts || {},
+        lengthMenu: [[25,50,100,200],[25,50,100,200]],
+        pageLength: 25,
+        columnDefs: [
+            { orderable: true, targets: [0,1,3] },
+            { orderable: false, targets: [2,4] }
+        ]
     });
-  }
-  </script>
+
+    // 5. Funzione per aggiornare lingua istantaneamente
+    function updateTableLanguage(lang) {
+        table.rows().every(function(){
+            const row = $(this.node());
+            row.find("td").each(function(){
+                const cell = $(this);
+                const text = cell.attr(`data-${lang}`);
+                if(cell.hasClass("title-cell")){
+                    // Mantieni HTML link se presente
+                    const link = cell.find("a");
+                    if(link.length){
+                        link.html(text);
+                    } else {
+                        cell.html(text);
+                    }
+                } else {
+                    cell.html(text);
+                }
+            });
+        });
+        table.draw(false); // ridisegna senza reset paginazione
+    }
+
+    // 6. Listener per pulsanti lingua
+    document.querySelectorAll('.language-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            const lang = button.id.includes('en') ? 'en' : 'it';
+            localStorage.setItem('language', lang);
+            updateTableLanguage(lang);
+        });
+    });
+});
+</script>
+
 
 </body>
 

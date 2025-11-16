@@ -566,23 +566,6 @@ function setLanguage(language) {
                 element.innerHTML = currentTexts[key];
             }
         });
-
-        // Verifica se siamo su repertoire.html prima di inizializzare DataTable
-        if (getCurrentPage() === 'repertoire.html') {
-            if ($.fn.DataTable.isDataTable('#sortTable')) {
-                $('#sortTable').DataTable().destroy();
-            }
-
-            $('#sortTable').DataTable({
-                "language": currentTexts,
-                "lengthMenu": [ [25, 50, 100, 200], [25, 50, 100, 200] ],
-                "pageLength": 25,
-                columnDefs: [
-                    { orderable: true, targets: [0, 1, 3] },
-                    { orderable: false, targets: [2, 4] }
-                ]
-            });
-        }
         
 
         // Store selected language in localStorage
