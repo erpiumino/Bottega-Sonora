@@ -42,7 +42,6 @@ content:
         label: Link Biglietti
         type: string
 
-content:
   - name: repertoire
     label: Repertorio
     path: repertoire
