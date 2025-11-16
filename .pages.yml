@@ -42,6 +42,48 @@ content:
         label: Link Biglietti
         type: string
 
+content:
+  - name: repertoire
+    label: Repertorio
+    path: repertoire
+    filename: '{year}-{fields.title}.md'
+    type: collection
+    create: true
+    view:
+      fields: [title, composer, year]
+    fields:
+      - name: title
+        label: Title
+        type: string
+
+      - name: composer
+        label: Composer
+        type: string
+
+      - name: year
+        label: Year
+        type: number
+
+      - name: link
+        label: Link (optional)
+        type: string
+
+      - name: organic_it
+        label: Organic (IT)
+        type: text
+
+      - name: organic_en
+        label: Organic (EN)
+        type: text
+
+      - name: notes_it
+        label: Notes (IT)
+        type: text
+
+      - name: notes_en
+        label: Notes (EN)
+        type: text
+
 media:
   input: assets/eventi
   output: /assets/eventi

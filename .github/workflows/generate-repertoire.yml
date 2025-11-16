@@ -1,0 +1,35 @@
+name: Aggiorna Repertorio
+
+on:
+  push:   # Triggera su ogni push
+  workflow_dispatch:  # Permette anche trigger manuale
+
+jobs:
+  generate-events:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          persist-credentials: false  # importante per usare PAT
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Generate repertoire.json
+        run: node generate-repertoire.js
+
+      - name: Commit & Push changes
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add repertoire.json
+          git diff --cached --quiet || git commit -m "Aggiornamento automatico repertorio"
+          git push https://erpiumino:${{ secrets.PAT }}@github.com/erpiumino/Bottega-Sonora.git HEAD:main
+

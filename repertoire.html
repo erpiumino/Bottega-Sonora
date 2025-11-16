@@ -731,6 +731,53 @@
   <!-- Main JS File -->
   <script src="assets/js/content.js" defer></script>
   <script src="assets/js/main.js"></script>
+  <script>
+  fetch('repertoire.json')
+    .then(r => r.json())
+    .then(data => {
+      window.repertoireJSON = data;
+      initRepertoire();
+    })
+    .catch(err => console.error("ERRORE CARICAMENTO JSON:", err));
+
+  function initRepertoire() {
+    const rep = window.repertoireJSON || [];
+    const tbody = document.querySelector('#sortTable tbody');
+    tbody.innerHTML = '';
+
+    const lang = localStorage.getItem('language') || 'en';
+
+    rep.forEach(item => {
+      let row = document.createElement('tr');
+
+      // Titolo con link opzionale
+      let titleHTML = item.link
+        ? `<a class="underline" href="${item.link}" target="_blank">${item.title}</a>`
+        : `<a>${item.title}</a>`;
+
+      // Organic multilingua
+      let organic = lang === 'en'
+        ? item.organic_en || item.organic_it
+        : item.organic_it;
+
+      // Notes multilingua
+      let notes = lang === 'en'
+        ? item.notes_en || item.notes_it
+        : item.notes_it;
+
+      row.innerHTML = `
+        <td>${titleHTML}</td>
+        <td>${item.composer}</td>
+        <td>${organic}</td>
+        <td>${item.year}</td>
+        <td>${notes}</td>
+      `;
+
+      tbody.appendChild(row);
+    });
+  }
+  </script>
+
 </body>
 
 </html>
