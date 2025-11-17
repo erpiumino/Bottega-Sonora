@@ -3313,10 +3313,13 @@ table tbody tr a{
   margin-bottom: 30px;
 }
 
-.title-text {
+tr .title-text {
     color: var(--accent-color);
 }
 a.underline {
     color: var(--accent-color);
     text-decoration: underline;
+}
+a.underline:hover{
+  opacity: 0.5;
 }
