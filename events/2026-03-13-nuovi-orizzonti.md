@@ -12,4 +12,5 @@ pubDate: 28/02/2026 15:46
 place: Auditorium “Ignazio Silone”, via Cavalieri di Vittorio Veneto n. 5 (Avezzano)
 url: https://maps.app.goo.gl/aHyu7Ncr8kc3BR4h7
 heroImage: /assets/eventi/e189c67c-7571-4d6a-ade9-b5302cc1a29c.jpg
+tickets: https://azinforma.com/allauditorium-silone-di-avezzano-il-concerto-nuovi-orizzonti/
 ---
