@@ -261,8 +261,8 @@ function setLanguage(language) {
             'modal-ul2' : '<h5 class="BS fw-bold">Bad translations</h5> Our developer is not payed to translate, he might have slipped on some of them',
             'modal-ul3' : '<h5 class="BS fw-bold">Email Us</h5> If you have complaints, suggestions, or if you want to vent',
             'modal-btn' : 'Great, thanks!',
-            //============================================Modal============================================//
-            'pe-paragraph1' : "The core idea of the project is to launch a call for scores aimed at composers. In a subsequent phase, one or more meetings will be held on an annual basis, exclusively featuring previously unpublished works by composers without any restrictions regarding age, gender, or geographical origin. These meetings also serve as a valuable opportunity for discussion and analysis among performers, the attending audience, and the composers themselves. Participation in the event is entirely free of charge, and there is no admission/participation fee for submitting documentation or receiving audio/video recordings. Read the full announcement (<a href='assets/download/Prime Esecuzioni Bando II.pdf' target='_blank'>IT</a>/<a href='assets/download/Prime Esecuzioni Bando II EN.pdf' target='_blank'>EN</a>).",
+            //============================================Prime Esecuzioni============================================//
+            'pe-paragraph1' : "The core idea of the project is to launch a call for scores aimed at composers. In a subsequent phase, one or more meetings will be held on an annual basis, exclusively featuring previously unpublished works by composers without any restrictions regarding age, gender, or geographical origin. These meetings also serve as a valuable opportunity for discussion and analysis among performers, the attending audience, and the composers themselves. Read the full announcement (<a href='assets/download/Prime Esecuzioni Bando III.pdf' target='_blank'>IT</a>/<a href='assets/download/Prime Esecuzioni Bando III EN.pdf' target='_blank'>EN</a>).",
             'pe-subtitle0' : 'RULES',
             'pe-subtitle1' : 'Modalities',
             'pe-subtitle2' : 'ANONYMITY',
@@ -282,7 +282,7 @@ function setLanguage(language) {
             'pe-bullet1' : 'Baccano Prize – Sponsored by the Identità Musicali Association, this prize grants the performance of one or more selected compositions in a dedicated concert organized as part of their concert season in Francavilla al Mare.',
             'pe-bullet2' : 'MEP Prize – Established by Music Ensemble Publishing, this prize consists of the publication of one or more compositions deemed particularly deserving.',
             'pe-send-email' : 'Send Email',
-            'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando II EN.pdf" target="_blank" class="btn btn-primary"> Read the Announcement',
+            'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando III EN.pdf" target="_blank" class="btn btn-primary"> Read the Announcement',
         },
 
 
@@ -513,8 +513,8 @@ function setLanguage(language) {
             'modal-ul2' : '<h5 class="BS fw-bold">Traduzioni</h5> Il nostro developer non è pagato per tradurre, potrebbe aver sbagliato qualcosa',
             'modal-ul3' : '<h5 class="BS fw-bold">Contattaci</h5> Se hai lamentele, suggerimenti, o se vuoi sfogarti',
             'modal-btn' : 'Ok, Grazie!',
-            //============================================Modal============================================//
-            'pe-paragraph1' : "L'idea alla base del progetto consiste nel bandire una call for scores destinata ai compositori. Essa si articolerà, in una fase successiva, in uno o piú incontri da tenersi nell'ottica di una cadenza annuale, all'interno del quale sarà possibile ascoltare esclusivamente lavori inediti realizzati da compositori senza alcuna limitazione di età, genere e provenienza geografica. Gli incontri rappresentano inoltre una preziosa occasione di discussione e analisi tra interpreti, pubblico presente e gli stessi compositori coinvolti.  La partecipazione all'evento è in forma totalmente gratuita, così come non è prevista alcuna tassa di ammissione/partecipazione per la documentazione inviata e per la ricezione delle registrazioni audio/video. Leggi il bando completo (<a href='assets/download/Prime Esecuzioni Bando II.pdf' target='_blank'>IT</a>/<a href='assets/download/Prime Esecuzioni Bando II EN.pdf' target='_blank'>EN</a>).",
+            //============================================Prime Esecuzioni============================================//
+            'pe-paragraph1' : "L'idea alla base del progetto consiste nel bandire una call for scores destinata ai compositori. Essa si articolerà, in una fase successiva, in uno o piú incontri da tenersi nell'ottica di una cadenza annuale, all'interno del quale sarà possibile ascoltare esclusivamente lavori inediti realizzati da compositori senza alcuna limitazione di età, genere e provenienza geografica. Gli incontri rappresentano inoltre una preziosa occasione di discussione e analisi tra interpreti, pubblico presente e gli stessi compositori coinvolti. Leggi il bando completo (<a href='assets/download/Prime Esecuzioni Bando III.pdf' target='_blank'>IT</a>/<a href='assets/download/Prime Esecuzioni Bando III EN.pdf' target='_blank'>EN</a>).",
             'pe-subtitle1' : 'Modalità',
             'pe-subtitle0' : 'REGOLAMENTO',
             'pe-subtitle2' : 'ANONIMATO',
@@ -534,7 +534,7 @@ function setLanguage(language) {
             'pe-bullet1' : 'Premio Baccano – offerto dall’associazione Identità Musicali, prevede l’esecuzione di una o più composizioni selezionate all’interno di un concerto dedicato, organizzato durante la loro stagione a Francavilla al Mare.',
             'pe-bullet2' : 'Premio MEP – istituito dalla casa editrice Music Ensemble Publishing, consiste nella pubblicazione di una o più composizioni ritenute meritevoli.',
             'pe-send-email' : 'Manda Email',
-            'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando II.pdf" target="_blank" class="btn btn-primary"> Leggi il Bando',
+            'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando III.pdf" target="_blank" class="btn btn-primary"> Leggi il Bando',
         },
     };
 
