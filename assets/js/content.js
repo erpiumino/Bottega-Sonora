@@ -283,6 +283,7 @@ function setLanguage(language) {
             'pe-bullet2' : 'MEP Prize – Established by Music Ensemble Publishing, this prize consists of the publication of one or more compositions deemed particularly deserving.',
             'pe-send-email' : 'Send Email',
             'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando III EN.pdf" target="_blank" class="btn btn-primary"> Read the Announcement',
+            'pe-deadline' : 'Deadline extended: <s>1<sup>st</sup> July</s> 15<sup>th</sup> July',
         },
 
 
@@ -535,6 +536,7 @@ function setLanguage(language) {
             'pe-bullet2' : 'Premio MEP – istituito dalla casa editrice Music Ensemble Publishing, consiste nella pubblicazione di una o più composizioni ritenute meritevoli.',
             'pe-send-email' : 'Manda Email',
             'pe-bando-button' : '<a href="assets/download/Prime Esecuzioni Bando III.pdf" target="_blank" class="btn btn-primary"> Leggi il Bando',
+            'pe-deadline' : 'Proroga scadenza: <s>1 Luglio</s> 15 Luglio',
         },
     };
 
